@@ -1,0 +1,288 @@
+﻿<#@ template language="C#" debug="false" hostspecific="true"#>
+<#@ include file="../common.ttinclude"#>
+<#@ include file="../config.ttinclude"#>
+<#@ output extension=".cs"#>
+<#
+    // 删除当前目录下所有.cs文件
+    foreach (var item in Directory.GetFiles(Path.GetDirectoryName(Host.TemplateFile), "*.cs"))
+    {
+        File.Delete(item);
+    }
+
+    // 项目根目录
+    string projectPath = Host.ResolveAssemblyReference("$(ProjectDir)");
+	projectPath = Directory.GetParent(Directory.GetParent(projectPath).FullName).FullName + "\\" + namespaceName + subName + ".DataAccess\\";
+    // 用户根目录
+    string userPath = Directory.GetParent(Directory.GetParent(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData)).FullName).FullName;
+
+    XDocument prjDoc = XDocument.Load(projectPath + namespaceName + subName + ".DataAccess.csproj");
+    var node = prjDoc.Element("Project").Elements().SelectMany(x => x.Elements("PackageReference")).FirstOrDefault(x => x.Attribute("Include").Value == "Mooho.Base");
+    string version = node.Attribute("Version").Value;
+
+    XDocument doc = XDocument.Load(userPath + "\\.nuget\\packages\\mooho.base\\" + version + "\\lib\\net5.0\\Mooho.Base.DataAccess.xml");
+
+	CodeGenerationTools code = new CodeGenerationTools(this);
+
+	var fileManager = EntityFrameworkTemplateFileManager.Create(this);
+
+    // 获取表信息
+	DataSet tableSet = this.GetTableData();
+
+	foreach (DataRow tableRow in tableSet.Tables[0].Rows)
+	{
+		string tableName = tableRow["TABLE_NAME"].ToString();
+		string tableComment = tableRow["TABLE_COMMENT"].ToString();
+		string entityName = this.GetEntityName(tableName);
+		bool isDeleted = Convert.ToInt32(tableRow["TABLE_ISDELETED"]) == 1;
+		bool isApplication = Convert.ToInt32(tableRow["TABLE_APPLICATION"]) == 1;
+		string tableType=  tableRow["TABLE_TYPE"].ToString().Trim();
+
+        if (this.IsModelExist(doc, entityName + "DataAccess"))
+        {
+            // 基础表
+            continue;
+        }
+
+		fileManager.StartNewFile(entityName + "Business.cs");
+#>
+using LinqKit;
+using Mooho.Base.Common;
+using Mooho.Base.IBusiness;
+using Mooho.Base.Model;
+using <#=namespaceName#><#=subName#>.IBusiness;
+using <#=namespaceName#><#=subName#>.IDataAccess;
+using <#=namespaceName#><#=subName#>.Model;
+using Newtonsoft.Json.Linq;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Linq.Expressions;
+
+namespace <#=namespaceName#><#=subName#>.Business
+{
+	/// <summary>
+	/// <#=tableComment#>业务逻辑
+	/// </summary>
+	public class <#=entityName#>Business : BusinessBase, I<#=entityName#>Business<#=isApplication?", IApplicationProcess":""#>
+	{
+        /// <summary>
+		/// 获取或设置<#=tableComment#>数据访问
+		/// </summary>
+		public I<#=entityName#>DataAccess <#=entityName#>DataAccess { get; set; }
+
+<#
+	    if (isApplication)
+        {
+#>
+        /// <summary>
+        /// 获取或设置申请业务逻辑
+        /// </summary>
+        public IApplicationBusiness ApplicationBusiness { get; set; }
+
+<#
+	    }
+
+	    if (tableType == "U")
+        {
+			if (!isApplication)
+			{
+#>
+        /// <summary>
+		/// 新增<#=tableComment#>
+		/// </summary>
+		/// <param name="<#=code.CamelCase(entityName)#>"><#=tableComment#></param>
+		/// <return><#=tableComment#></return>
+		public virtual <#=entityName#> Add<#=entityName#>(<#=entityName#> <#=code.CamelCase(entityName)#>)
+		{
+			<#=entityName#> entity = this.<#=entityName#>DataAccess.Add<#=entityName#>(<#=code.CamelCase(entityName)#>);
+
+			this.DataBase.SaveChanges();
+
+			this.SaveTableData(entity.ID, <#=code.CamelCase(entityName)#>.TableData);
+
+			return entity;
+		}
+
+		/// <summary>
+		/// 修改<#=tableComment#>
+		/// </summary>
+		/// <param name="<#=code.CamelCase(entityName)#>"><#=tableComment#></param>
+		/// <return><#=tableComment#></return>
+		public virtual <#=entityName#> Update<#=entityName#>(<#=entityName#> <#=code.CamelCase(entityName)#>)
+		{
+			<#=entityName#> entity = this.<#=entityName#>DataAccess.Update<#=entityName#>(<#=code.CamelCase(entityName)#>);
+
+			this.DataBase.SaveChanges();
+
+			this.SaveTableData(entity.ID, <#=code.CamelCase(entityName)#>.TableData);
+
+			return entity;
+		}
+
+		/// <summary>
+		/// 删除<#=tableComment#>
+		/// </summary>
+		/// <param name="id">唯一编号</param>
+		public virtual void Remove<#=entityName#>(long id)
+		{
+			<#=entityName#> entity = this.<#=entityName#>DataAccess.Get<#=entityName#>(id);
+
+			this.<#=entityName#>DataAccess.Remove<#=entityName#>(entity);
+
+			this.DataBase.SaveChanges();
+		}
+
+<#
+			}
+			else
+			{
+#>
+        /// <summary>
+        /// 提交<#=tableComment#>
+        /// </summary>
+        /// <param name="<#=code.CamelCase(entityName)#>"><#=tableComment#></param>
+        /// <param name="originaterID">发起人</param>
+        /// <return><#=tableComment#></return>
+        public virtual <#=entityName#> Submit<#=entityName#>(<#=entityName#> <#=code.CamelCase(entityName)#>, long originaterID)
+        {
+            // 提交申请
+            <#=entityName#> entity = this.ApplicationBusiness.Submit("<#=entityName#>", <#=code.CamelCase(entityName)#>, originaterID) as <#=entityName#>;
+
+            // 保存关联表数据
+            this.SaveTableData(entity.ID, <#=code.CamelCase(entityName)#>.TableData);
+
+            return entity;
+        }
+
+        /// <summary>
+        /// 保存<#=tableComment#>
+        /// </summary>
+        /// <param name="<#=code.CamelCase(entityName)#>"><#=tableComment#></param>
+        /// <return><#=tableComment#></return>
+        public virtual <#=entityName#> Save<#=entityName#>(<#=entityName#> <#=code.CamelCase(entityName)#>)
+        {
+            // 保存申请
+            <#=entityName#> entity = this.ApplicationBusiness.Save("<#=entityName#>", <#=code.CamelCase(entityName)#>, this.CurrentUserID.Value, out Application application) as <#=entityName#>;
+
+            // 保存关联表数据
+            this.SaveTableData(entity.ID, <#=code.CamelCase(entityName)#>.TableData);
+
+            return entity;
+        }
+
+		/// <summary>
+		/// 流程事件
+		/// </summary>
+		/// <param name="eventType">事件类型</param>
+		/// <param name="id">唯一编号</param>
+		/// <param name="processInst">流程实例</param>
+		/// <param name="args">参数</param>
+		public virtual void OnProcessEvent(ProcessEventType eventType, long id, ProcessInst processInst, object [] args)
+		{
+		}
+
+		/// <summary>
+		/// 活动事件
+		/// </summary>
+		/// <param name="eventType">事件类型</param>
+		/// <param name="id">唯一编号</param>
+		/// <param name="activityInst">活动实例</param>
+		/// <param name="args">参数</param>
+		public virtual void OnActivityEvent(ProcessEventType eventType, long id, ActivityInst activityInst, object[] args)
+		{
+		}
+
+		/// <summary>
+		/// 任务事件
+		/// </summary>
+		/// <param name="eventType">事件类型</param>
+		/// <param name="id">唯一编号</param>
+		/// <param name="task">任务</param>
+		/// <param name="args">参数</param>
+		public virtual void OnTaskEvent(ProcessEventType eventType, long id, Task task, object[] args)
+		{
+		}
+
+<#
+			}
+#>
+		/// <summary>
+		/// 获取<#=tableComment#>
+		/// </summary>
+		/// <param name="id">唯一编号</param>
+		/// <returns><#=tableComment#></returns>
+		public virtual <#=entityName#> Get<#=entityName#>(long id)
+		{
+			return this.<#=entityName#>DataAccess.Get<#=entityName#>(id);
+		}
+
+		/// <summary>
+		/// 获取<#=tableComment#>
+		/// </summary>
+		/// <param name="id">唯一编号</param>
+		/// <param name="defaultEntity">默认值</param>
+		/// <returns><#=tableComment#></returns>
+		public virtual <#=entityName#> Get<#=entityName#>OrDefault(long id, <#=entityName#> defaultEntity = null)
+		{
+			return this.<#=entityName#>DataAccess.Get<#=entityName#>OrDefault(id, defaultEntity);
+		}
+		
+		/// <summary>
+		/// 根据条件获取<#=tableComment#>
+		/// </summary>
+		/// <param name="predicate">查询条件</param>
+		/// <returns><#=tableComment#></returns>
+		public virtual <#=entityName#> Get<#=entityName#>(Expression<Func<<#=entityName#>, bool>> predicate)
+		{
+			return this.<#=entityName#>DataAccess.Get<#=entityName#>(predicate);
+		}
+
+		/// <summary>
+		/// 根据条件获取<#=tableComment#>
+		/// </summary>
+		/// <param name="predicate">查询条件</param>
+		/// <param name="defaultEntity">默认值</param>
+		/// <returns><#=tableComment#></returns>
+		public virtual <#=entityName#> Get<#=entityName#>OrDefault(Expression<Func<<#=entityName#>, bool>> predicate, <#=entityName#> defaultEntity = null)
+		{
+			return this.<#=entityName#>DataAccess.Get<#=entityName#>OrDefault(predicate, defaultEntity);
+		}
+
+<#
+		}
+#>
+		/// <summary>
+		/// 根据条件查询<#=tableComment#>
+		/// </summary>
+		/// <param name="predicate">查询条件</param>
+		/// <param name="pages">分页信息</param>
+		/// <returns><#=tableComment#>集合</returns>
+		public virtual List<<#=entityName#>> Query<#=entityName#>(Expression<Func<<#=entityName#>, bool>> predicate, Pages pages = null)
+		{
+			return this.<#=entityName#>DataAccess.Query<#=entityName#>(predicate, pages);
+		}
+
+		/// <summary>
+        /// 根据条件查询<#=tableComment#>
+        /// </summary>
+        /// <param name="filter">筛选条件</param>
+        /// <param name="pages">分页信息</param>
+        /// <returns><#=tableComment#>集合</returns>
+        public virtual List<<#=entityName#>> Query<#=entityName#>(JObject filter, out Pages pages)
+        {
+            pages = this.GetPages(filter);
+
+            var predicate = this.CreatePredicate<<#=entityName#>>();
+
+            return this.<#=entityName#>DataAccess.Query<#=entityName#>(predicate.Expand(), this.GetPredicate(typeof(<#=entityName#>), filter), pages);
+        }
+	}
+}
+<#
+	}
+
+	fileManager.Process();
+#>
+<#+
+
+#>

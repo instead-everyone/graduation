@@ -1,0 +1,497 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>accreditation.API</name>
+    </assembly>
+    <members>
+        <member name="T:accreditation.API.Admin.AdminControllerBase">
+            <summary>
+            管理中心控制器基类
+            </summary>
+        </member>
+        <member name="T:accreditation.API.Admin.AssessFragmentController">
+            <summary>
+            考核分解项控制器
+            </summary>
+        </member>
+        <member name="P:accreditation.API.Admin.AssessFragmentController.AssessFragmentBusiness">
+            <summary>
+            获取或设置考核分解项业务逻辑
+            </summary>
+        </member>
+        <member name="M:accreditation.API.Admin.AssessFragmentController.AddAssessFragment(accreditation.Model.AssessFragment)">
+            <summary>
+            新增考核分解项
+            </summary>
+            <param name="assessFragment">考核分解项</param>
+            <return>考核分解项</return>
+        </member>
+        <member name="M:accreditation.API.Admin.AssessFragmentController.UpdateAssessFragment(accreditation.Model.AssessFragment)">
+            <summary>
+            修改考核分解项
+            </summary>
+            <param name="assessFragment">考核分解项</param>
+            <return>考核分解项</return>
+        </member>
+        <member name="M:accreditation.API.Admin.AssessFragmentController.RemoveAssessFragment(System.Int64)">
+            <summary>
+            删除考核分解项
+            </summary>
+            <param name="id">唯一编号</param>
+        </member>
+        <member name="M:accreditation.API.Admin.AssessFragmentController.GetAssessFragment(System.Int64)">
+            <summary>
+            获取考核分解项
+            </summary>
+            <param name="id">唯一编号</param>
+            <returns>考核分解项</returns>
+        </member>
+        <member name="M:accreditation.API.Admin.AssessFragmentController.QueryAssessFragment(Newtonsoft.Json.Linq.JObject)">
+            <summary>
+            根据条件查询考核分解项
+            </summary>
+            <param name="filter">过滤条件</param>
+            <returns>考核分解项集合</returns>
+        </member>
+        <member name="T:accreditation.API.Admin.AssessMethodController">
+            <summary>
+            考核方式控制器
+            </summary>
+        </member>
+        <member name="P:accreditation.API.Admin.AssessMethodController.AssessMethodBusiness">
+            <summary>
+            获取或设置考核方式业务逻辑
+            </summary>
+        </member>
+        <member name="M:accreditation.API.Admin.AssessMethodController.AddAssessMethod(accreditation.Model.AssessMethod)">
+            <summary>
+            新增考核方式
+            </summary>
+            <param name="assessMethod">考核方式</param>
+            <return>考核方式</return>
+        </member>
+        <member name="M:accreditation.API.Admin.AssessMethodController.UpdateAssessMethod(accreditation.Model.AssessMethod)">
+            <summary>
+            修改考核方式
+            </summary>
+            <param name="assessMethod">考核方式</param>
+            <return>考核方式</return>
+        </member>
+        <member name="M:accreditation.API.Admin.AssessMethodController.RemoveAssessMethod(System.Int64)">
+            <summary>
+            删除考核方式
+            </summary>
+            <param name="id">唯一编号</param>
+        </member>
+        <member name="M:accreditation.API.Admin.AssessMethodController.GetAssessMethod(System.Int64)">
+            <summary>
+            获取考核方式
+            </summary>
+            <param name="id">唯一编号</param>
+            <returns>考核方式</returns>
+        </member>
+        <member name="M:accreditation.API.Admin.AssessMethodController.QueryAssessMethod(Newtonsoft.Json.Linq.JObject)">
+            <summary>
+            根据条件查询考核方式
+            </summary>
+            <param name="filter">过滤条件</param>
+            <returns>考核方式集合</returns>
+        </member>
+        <member name="T:accreditation.API.Admin.CourseController">
+            <summary>
+            课程控制器
+            </summary>
+        </member>
+        <member name="P:accreditation.API.Admin.CourseController.CourseBusiness">
+            <summary>
+            获取或设置课程业务逻辑
+            </summary>
+        </member>
+        <member name="M:accreditation.API.Admin.CourseController.AddCourse(accreditation.Model.Course)">
+            <summary>
+            新增课程
+            </summary>
+            <param name="course">课程</param>
+            <return>课程</return>
+        </member>
+        <member name="M:accreditation.API.Admin.CourseController.UpdateCourse(accreditation.Model.Course)">
+            <summary>
+            修改课程
+            </summary>
+            <param name="course">课程</param>
+            <return>课程</return>
+        </member>
+        <member name="M:accreditation.API.Admin.CourseController.RemoveCourse(System.Int64)">
+            <summary>
+            删除课程
+            </summary>
+            <param name="id">唯一编号</param>
+        </member>
+        <member name="M:accreditation.API.Admin.CourseController.GetCourse(System.Int64)">
+            <summary>
+            获取课程
+            </summary>
+            <param name="id">唯一编号</param>
+            <returns>课程</returns>
+        </member>
+        <member name="M:accreditation.API.Admin.CourseController.QueryCourse(Newtonsoft.Json.Linq.JObject)">
+            <summary>
+            根据条件查询课程
+            </summary>
+            <param name="filter">过滤条件</param>
+            <returns>课程集合</returns>
+        </member>
+        <member name="T:accreditation.API.Admin.CourseTargetController">
+            <summary>
+            课程目标控制器
+            </summary>
+        </member>
+        <member name="P:accreditation.API.Admin.CourseTargetController.CourseTargetBusiness">
+            <summary>
+            获取或设置课程目标业务逻辑
+            </summary>
+        </member>
+        <member name="M:accreditation.API.Admin.CourseTargetController.AddCourseTarget(accreditation.Model.CourseTarget)">
+            <summary>
+            新增课程目标
+            </summary>
+            <param name="courseTarget">课程目标</param>
+            <return>课程目标</return>
+        </member>
+        <member name="M:accreditation.API.Admin.CourseTargetController.UpdateCourseTarget(accreditation.Model.CourseTarget)">
+            <summary>
+            修改课程目标
+            </summary>
+            <param name="courseTarget">课程目标</param>
+            <return>课程目标</return>
+        </member>
+        <member name="M:accreditation.API.Admin.CourseTargetController.RemoveCourseTarget(System.Int64)">
+            <summary>
+            删除课程目标
+            </summary>
+            <param name="id">唯一编号</param>
+        </member>
+        <member name="M:accreditation.API.Admin.CourseTargetController.GetCourseTarget(System.Int64)">
+            <summary>
+            获取课程目标
+            </summary>
+            <param name="id">唯一编号</param>
+            <returns>课程目标</returns>
+        </member>
+        <member name="M:accreditation.API.Admin.CourseTargetController.QueryCourseTarget(Newtonsoft.Json.Linq.JObject)">
+            <summary>
+            根据条件查询课程目标
+            </summary>
+            <param name="filter">过滤条件</param>
+            <returns>课程目标集合</returns>
+        </member>
+        <member name="T:accreditation.API.Admin.CultivationProjectController">
+            <summary>
+            培养计划控制器
+            </summary>
+        </member>
+        <member name="P:accreditation.API.Admin.CultivationProjectController.CultivationProjectBusiness">
+            <summary>
+            获取或设置培养计划业务逻辑
+            </summary>
+        </member>
+        <member name="M:accreditation.API.Admin.CultivationProjectController.AddCultivationProject(accreditation.Model.CultivationProject)">
+            <summary>
+            新增培养计划
+            </summary>
+            <param name="cultivationProject">培养计划</param>
+            <return>培养计划</return>
+        </member>
+        <member name="M:accreditation.API.Admin.CultivationProjectController.UpdateCultivationProject(accreditation.Model.CultivationProject)">
+            <summary>
+            修改培养计划
+            </summary>
+            <param name="cultivationProject">培养计划</param>
+            <return>培养计划</return>
+        </member>
+        <member name="M:accreditation.API.Admin.CultivationProjectController.RemoveCultivationProject(System.Int64)">
+            <summary>
+            删除培养计划
+            </summary>
+            <param name="id">唯一编号</param>
+        </member>
+        <member name="M:accreditation.API.Admin.CultivationProjectController.GetCultivationProject(System.Int64)">
+            <summary>
+            获取培养计划
+            </summary>
+            <param name="id">唯一编号</param>
+            <returns>培养计划</returns>
+        </member>
+        <member name="M:accreditation.API.Admin.CultivationProjectController.QueryCultivationProject(Newtonsoft.Json.Linq.JObject)">
+            <summary>
+            根据条件查询培养计划
+            </summary>
+            <param name="filter">过滤条件</param>
+            <returns>培养计划集合</returns>
+        </member>
+        <member name="T:accreditation.API.Admin.GraduationPointController">
+            <summary>
+            毕业指标点控制器
+            </summary>
+        </member>
+        <member name="P:accreditation.API.Admin.GraduationPointController.GraduationPointBusiness">
+            <summary>
+            获取或设置毕业指标点业务逻辑
+            </summary>
+        </member>
+        <member name="M:accreditation.API.Admin.GraduationPointController.AddGraduationPoint(accreditation.Model.GraduationPoint)">
+            <summary>
+            新增毕业指标点
+            </summary>
+            <param name="graduationPoint">毕业指标点</param>
+            <return>毕业指标点</return>
+        </member>
+        <member name="M:accreditation.API.Admin.GraduationPointController.UpdateGraduationPoint(accreditation.Model.GraduationPoint)">
+            <summary>
+            修改毕业指标点
+            </summary>
+            <param name="graduationPoint">毕业指标点</param>
+            <return>毕业指标点</return>
+        </member>
+        <member name="M:accreditation.API.Admin.GraduationPointController.RemoveGraduationPoint(System.Int64)">
+            <summary>
+            删除毕业指标点
+            </summary>
+            <param name="id">唯一编号</param>
+        </member>
+        <member name="M:accreditation.API.Admin.GraduationPointController.GetGraduationPoint(System.Int64)">
+            <summary>
+            获取毕业指标点
+            </summary>
+            <param name="id">唯一编号</param>
+            <returns>毕业指标点</returns>
+        </member>
+        <member name="M:accreditation.API.Admin.GraduationPointController.QueryGraduationPoint(Newtonsoft.Json.Linq.JObject)">
+            <summary>
+            根据条件查询毕业指标点
+            </summary>
+            <param name="filter">过滤条件</param>
+            <returns>毕业指标点集合</returns>
+        </member>
+        <member name="T:accreditation.API.Admin.GraduationReqController">
+            <summary>
+            毕业要求控制器
+            </summary>
+        </member>
+        <member name="P:accreditation.API.Admin.GraduationReqController.GraduationReqBusiness">
+            <summary>
+            获取或设置毕业要求业务逻辑
+            </summary>
+        </member>
+        <member name="M:accreditation.API.Admin.GraduationReqController.AddGraduationReq(accreditation.Model.GraduationReq)">
+            <summary>
+            新增毕业要求
+            </summary>
+            <param name="graduationReq">毕业要求</param>
+            <return>毕业要求</return>
+        </member>
+        <member name="M:accreditation.API.Admin.GraduationReqController.UpdateGraduationReq(accreditation.Model.GraduationReq)">
+            <summary>
+            修改毕业要求
+            </summary>
+            <param name="graduationReq">毕业要求</param>
+            <return>毕业要求</return>
+        </member>
+        <member name="M:accreditation.API.Admin.GraduationReqController.RemoveGraduationReq(System.Int64)">
+            <summary>
+            删除毕业要求
+            </summary>
+            <param name="id">唯一编号</param>
+        </member>
+        <member name="M:accreditation.API.Admin.GraduationReqController.GetGraduationReq(System.Int64)">
+            <summary>
+            获取毕业要求
+            </summary>
+            <param name="id">唯一编号</param>
+            <returns>毕业要求</returns>
+        </member>
+        <member name="M:accreditation.API.Admin.GraduationReqController.QueryGraduationReq(Newtonsoft.Json.Linq.JObject)">
+            <summary>
+            根据条件查询毕业要求
+            </summary>
+            <param name="filter">过滤条件</param>
+            <returns>毕业要求集合</returns>
+        </member>
+        <member name="T:accreditation.API.Admin.StudentInfoController">
+            <summary>
+            学生信息控制器
+            </summary>
+        </member>
+        <member name="P:accreditation.API.Admin.StudentInfoController.StudentInfoBusiness">
+            <summary>
+            获取或设置学生信息业务逻辑
+            </summary>
+        </member>
+        <member name="M:accreditation.API.Admin.StudentInfoController.AddStudentInfo(accreditation.Model.StudentInfo)">
+            <summary>
+            新增学生信息
+            </summary>
+            <param name="studentInfo">学生信息</param>
+            <return>学生信息</return>
+        </member>
+        <member name="M:accreditation.API.Admin.StudentInfoController.UpdateStudentInfo(accreditation.Model.StudentInfo)">
+            <summary>
+            修改学生信息
+            </summary>
+            <param name="studentInfo">学生信息</param>
+            <return>学生信息</return>
+        </member>
+        <member name="M:accreditation.API.Admin.StudentInfoController.RemoveStudentInfo(System.Int64)">
+            <summary>
+            删除学生信息
+            </summary>
+            <param name="id">唯一编号</param>
+        </member>
+        <member name="M:accreditation.API.Admin.StudentInfoController.GetStudentInfo(System.Int64)">
+            <summary>
+            获取学生信息
+            </summary>
+            <param name="id">唯一编号</param>
+            <returns>学生信息</returns>
+        </member>
+        <member name="M:accreditation.API.Admin.StudentInfoController.QueryStudentInfo(Newtonsoft.Json.Linq.JObject)">
+            <summary>
+            根据条件查询学生信息
+            </summary>
+            <param name="filter">过滤条件</param>
+            <returns>学生信息集合</returns>
+        </member>
+        <member name="T:accreditation.API.Admin.SyllabuseController">
+            <summary>
+            教学大纲控制器
+            </summary>
+        </member>
+        <member name="P:accreditation.API.Admin.SyllabuseController.SyllabuseBusiness">
+            <summary>
+            获取或设置教学大纲业务逻辑
+            </summary>
+        </member>
+        <member name="M:accreditation.API.Admin.SyllabuseController.AddSyllabuse(accreditation.Model.Syllabuse)">
+            <summary>
+            新增教学大纲
+            </summary>
+            <param name="syllabuse">教学大纲</param>
+            <return>教学大纲</return>
+        </member>
+        <member name="M:accreditation.API.Admin.SyllabuseController.UpdateSyllabuse(accreditation.Model.Syllabuse)">
+            <summary>
+            修改教学大纲
+            </summary>
+            <param name="syllabuse">教学大纲</param>
+            <return>教学大纲</return>
+        </member>
+        <member name="M:accreditation.API.Admin.SyllabuseController.RemoveSyllabuse(System.Int64)">
+            <summary>
+            删除教学大纲
+            </summary>
+            <param name="id">唯一编号</param>
+        </member>
+        <member name="M:accreditation.API.Admin.SyllabuseController.GetSyllabuse(System.Int64)">
+            <summary>
+            获取教学大纲
+            </summary>
+            <param name="id">唯一编号</param>
+            <returns>教学大纲</returns>
+        </member>
+        <member name="M:accreditation.API.Admin.SyllabuseController.QuerySyllabuse(Newtonsoft.Json.Linq.JObject)">
+            <summary>
+            根据条件查询教学大纲
+            </summary>
+            <param name="filter">过滤条件</param>
+            <returns>教学大纲集合</returns>
+        </member>
+        <member name="T:accreditation.API.Admin.TeacherInfoController">
+            <summary>
+            教师信息控制器
+            </summary>
+        </member>
+        <member name="P:accreditation.API.Admin.TeacherInfoController.TeacherInfoBusiness">
+            <summary>
+            获取或设置教师信息业务逻辑
+            </summary>
+        </member>
+        <member name="M:accreditation.API.Admin.TeacherInfoController.AddTeacherInfo(accreditation.Model.TeacherInfo)">
+            <summary>
+            新增教师信息
+            </summary>
+            <param name="teacherInfo">教师信息</param>
+            <return>教师信息</return>
+        </member>
+        <member name="M:accreditation.API.Admin.TeacherInfoController.UpdateTeacherInfo(accreditation.Model.TeacherInfo)">
+            <summary>
+            修改教师信息
+            </summary>
+            <param name="teacherInfo">教师信息</param>
+            <return>教师信息</return>
+        </member>
+        <member name="M:accreditation.API.Admin.TeacherInfoController.RemoveTeacherInfo(System.Int64)">
+            <summary>
+            删除教师信息
+            </summary>
+            <param name="id">唯一编号</param>
+        </member>
+        <member name="M:accreditation.API.Admin.TeacherInfoController.GetTeacherInfo(System.Int64)">
+            <summary>
+            获取教师信息
+            </summary>
+            <param name="id">唯一编号</param>
+            <returns>教师信息</returns>
+        </member>
+        <member name="M:accreditation.API.Admin.TeacherInfoController.QueryTeacherInfo(Newtonsoft.Json.Linq.JObject)">
+            <summary>
+            根据条件查询教师信息
+            </summary>
+            <param name="filter">过滤条件</param>
+            <returns>教师信息集合</returns>
+        </member>
+        <member name="T:accreditation.API.Admin.TeachingTeachclasseController">
+            <summary>
+            教学班控制器
+            </summary>
+        </member>
+        <member name="P:accreditation.API.Admin.TeachingTeachclasseController.TeachingTeachclasseBusiness">
+            <summary>
+            获取或设置教学班业务逻辑
+            </summary>
+        </member>
+        <member name="M:accreditation.API.Admin.TeachingTeachclasseController.AddTeachingTeachclasse(accreditation.Model.TeachingTeachclasse)">
+            <summary>
+            新增教学班
+            </summary>
+            <param name="teachingTeachclasse">教学班</param>
+            <return>教学班</return>
+        </member>
+        <member name="M:accreditation.API.Admin.TeachingTeachclasseController.UpdateTeachingTeachclasse(accreditation.Model.TeachingTeachclasse)">
+            <summary>
+            修改教学班
+            </summary>
+            <param name="teachingTeachclasse">教学班</param>
+            <return>教学班</return>
+        </member>
+        <member name="M:accreditation.API.Admin.TeachingTeachclasseController.RemoveTeachingTeachclasse(System.Int64)">
+            <summary>
+            删除教学班
+            </summary>
+            <param name="id">唯一编号</param>
+        </member>
+        <member name="M:accreditation.API.Admin.TeachingTeachclasseController.GetTeachingTeachclasse(System.Int64)">
+            <summary>
+            获取教学班
+            </summary>
+            <param name="id">唯一编号</param>
+            <returns>教学班</returns>
+        </member>
+        <member name="M:accreditation.API.Admin.TeachingTeachclasseController.QueryTeachingTeachclasse(Newtonsoft.Json.Linq.JObject)">
+            <summary>
+            根据条件查询教学班
+            </summary>
+            <param name="filter">过滤条件</param>
+            <returns>教学班集合</returns>
+        </member>
+    </members>
+</doc>

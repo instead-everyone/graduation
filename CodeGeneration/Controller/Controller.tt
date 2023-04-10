@@ -1,0 +1,187 @@
+﻿<#@ template language="C#" debug="false" hostspecific="true"#>
+<#@ include file="../common.ttinclude"#>
+<#@ include file="../config.ttinclude"#>
+<#@ output extension=".cs"#>
+<#
+    // 删除当前目录下所有.cs文件
+    foreach (var item in Directory.GetFiles(Path.GetDirectoryName(Host.TemplateFile), "*.cs"))
+    {
+        File.Delete(item);
+    }
+
+	// 项目根目录
+    string projectPath = Host.ResolveAssemblyReference("$(ProjectDir)");
+	projectPath = Directory.GetParent(Directory.GetParent(projectPath).FullName).FullName + "\\" + namespaceName + subName + ".DataAccess\\";
+    // 用户根目录
+    string userPath = Directory.GetParent(Directory.GetParent(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData)).FullName).FullName;
+
+    XDocument prjDoc = XDocument.Load(projectPath + namespaceName + subName + ".DataAccess.csproj");
+    var node = prjDoc.Element("Project").Elements().SelectMany(x => x.Elements("PackageReference")).FirstOrDefault(x => x.Attribute("Include").Value == "Mooho.Base");
+    string version = node.Attribute("Version").Value;
+
+    XDocument doc = XDocument.Load(userPath + "\\.nuget\\packages\\mooho.base\\" + version + "\\lib\\net5.0\\Mooho.Base.DataAccess.xml");
+
+    CodeGenerationTools code = new CodeGenerationTools(this);
+
+    var fileManager = EntityFrameworkTemplateFileManager.Create(this);
+
+    // 获取表信息
+	DataSet tableSet = this.GetTableData();
+
+    foreach (DataRow tableRow in tableSet.Tables[0].Rows)
+    {
+        string tableName = tableRow["TABLE_NAME"].ToString();
+        string tableComment = tableRow["TABLE_COMMENT"].ToString();
+        string entityName = this.GetEntityName(tableName);
+        bool isDeleted = Convert.ToInt32(tableRow["TABLE_ISDELETED"]) == 1;
+		bool isApplication = Convert.ToInt32(tableRow["TABLE_APPLICATION"]) == 1;
+		string tableType = tableRow["TABLE_TYPE"].ToString().Trim();
+
+        if (this.IsModelExist(doc, entityName + "DataAccess"))
+        {
+            // 基础表
+            continue;
+        }
+
+        fileManager.StartNewFile(entityName + "Controller.cs");
+#>
+using LinqKit;
+using Microsoft.AspNetCore.Mvc;
+using Mooho.Base.Common;
+using <#=namespaceName#><#=subName#>.IBusiness;
+using <#=namespaceName#><#=subName#>.Model;
+using Newtonsoft.Json.Linq;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+
+namespace <#=namespaceName#><#=subName#>.API.Admin
+{
+    /// <summary>
+    /// <#=tableComment#>控制器
+    /// </summary>
+    [Route("api/<#=entityName#>")]
+    public class <#=entityName#>Controller : AdminControllerBase
+    {
+        /// <summary>
+		/// 获取或设置<#=tableComment#>业务逻辑
+		/// </summary>
+		public I<#=entityName#>Business <#=entityName#>Business { get; set; }
+
+<#
+	    if (tableType == "U")
+        {
+            if (!isApplication)
+            {
+#>
+        /// <summary>
+        /// 新增<#=tableComment#>
+        /// </summary>
+        /// <param name="<#=code.CamelCase(entityName)#>"><#=tableComment#></param>
+        /// <return><#=tableComment#></return>
+        [HttpPost, Route("add")]
+        public IActionResult Add<#=entityName#>(<#=entityName#> <#=code.CamelCase(entityName)#>)
+        {
+            <#=entityName#> result = this.<#=entityName#>Business.Add<#=entityName#>(<#=code.CamelCase(entityName)#>);
+
+			return this.Ok(result);
+        }
+
+        /// <summary>
+        /// 修改<#=tableComment#>
+        /// </summary>
+        /// <param name="<#=code.CamelCase(entityName)#>"><#=tableComment#></param>
+        /// <return><#=tableComment#></return>
+        [HttpPut, Route("update")]
+        public IActionResult Update<#=entityName#>(<#=entityName#> <#=code.CamelCase(entityName)#>)
+        {
+            <#=entityName#> result = this.<#=entityName#>Business.Update<#=entityName#>(<#=code.CamelCase(entityName)#>);
+
+			return this.Ok(result);
+        }
+
+        /// <summary>
+        /// 删除<#=tableComment#>
+        /// </summary>
+        /// <param name="id">唯一编号</param>
+        [HttpDelete, Route("remove")]
+        public IActionResult Remove<#=entityName#>(long id)
+        {
+            this.<#=entityName#>Business.Remove<#=entityName#>(id);
+
+            return this.Ok();
+        }
+
+<#
+			}
+			else
+			{
+#>
+        /// <summary>
+        /// 提交<#=tableComment#>
+        /// </summary>
+        /// <param name="<#=code.CamelCase(entityName)#>"><#=tableComment#></param>
+        /// <return><#=tableComment#></return>
+        [HttpPost, Route("submit")]
+        public IActionResult Submit<#=entityName#>(<#=entityName#> <#=code.CamelCase(entityName)#>)
+        {
+            <#=entityName#> result = this.<#=entityName#>Business.Submit<#=entityName#>(<#=code.CamelCase(entityName)#>, this.CurrentUserID.Value);
+
+            return this.Ok(result);
+        }
+
+        /// <summary>
+        /// 保存<#=tableComment#>
+        /// </summary>
+        /// <param name="<#=code.CamelCase(entityName)#>"><#=tableComment#></param>
+        /// <return><#=tableComment#></return>
+        [HttpPost, Route("save")]
+        public IActionResult Save<#=entityName#>(<#=entityName#> <#=code.CamelCase(entityName)#>)
+        {
+            <#=entityName#> result = this.<#=entityName#>Business.Save<#=entityName#>(<#=code.CamelCase(entityName)#>);
+
+            return this.Ok(result);
+        }
+
+<#
+			}
+#>
+        /// <summary>
+        /// 获取<#=tableComment#>
+        /// </summary>
+        /// <param name="id">唯一编号</param>
+        /// <returns><#=tableComment#></returns>
+        [HttpGet, Route("get")]
+        public IActionResult Get<#=entityName#>(long id)
+        {
+            <#=entityName#> result = this.<#=entityName#>Business.Get<#=entityName#>(id);
+
+            return this.Ok(result);
+        }
+
+<#
+		}
+#>
+        /// <summary>
+        /// 根据条件查询<#=tableComment#>
+        /// </summary>
+        /// <param name="filter">过滤条件</param>
+        /// <returns><#=tableComment#>集合</returns>
+		[NoLog]
+        [HttpPost, Route("query")]
+        public IActionResult Query<#=entityName#>(JObject filter)
+        {
+            List<<#=entityName#>> results = this.<#=entityName#>Business.Query<#=entityName#>(filter, out Pages pages);
+
+			return this.GetResponse(results, pages, filter);
+        }
+    }
+}
+<#
+    }
+
+    fileManager.Process();
+#>
+<#+
+
+#>

@@ -1,0 +1,488 @@
+﻿<#@ assembly name="System.Data.Entity.Design" #>
+<#@ assembly name="System.Core"#>
+<#@ assembly name="System.Data"#>
+<#@ assembly name="$(SolutionDir)\CodeGeneration\Ref\MySql.Data.dll"#>
+<#@ import namespace="MySql.Data.MySqlClient" #>
+<#@ import namespace="System.Data" #>
+<#@ import namespace="System.Data.Common" #>
+<#@ import namespace="System.Data.Entity.Design.PluralizationServices" #>
+<#@ import namespace="System.Data.SqlClient" #>
+<#@ import namespace="System.Linq" #>
+<#@ import namespace="System.Xml.Linq" #>
+<#@ include file="EF6.Utility.CS.ttinclude"#>
+<#+
+    /// <summary>
+    /// 获取数据库名
+    /// </summary>
+    public string GetDatabaseName()
+    {
+        string tmp = connectionString.Substring(connectionString.IndexOf("database=") + 9);
+        return tmp.Substring(0, tmp.IndexOf(";"));
+    }
+
+    /// <summary>
+    /// 获取是否MySql
+    /// </summary>
+    public bool IsMySql()
+    {
+        return connectionString.Trim().ToUpper().StartsWith("SERVER=");
+    }
+
+    /// <summary>
+    /// 获取数据库链接
+    /// </summary>
+    public DbConnection GetConnection()
+    {
+        if (this.IsMySql())
+        {
+            return new MySqlConnection(connectionString);
+        }
+        else
+        {
+            return new SqlConnection(connectionString);
+        }
+    }
+
+    /// <summary>
+    /// 获取表信息
+    /// </summary>
+    public DataSet GetTableData()
+    {
+	    DbConnection conn = GetConnection(); 
+	    conn.Open();
+        string sql = "";
+
+	    // 获取表信息
+        if (this.IsMySql())
+        {
+	        sql = @"
+                SELECT * FROM (
+		            SELECT	TABLES.TABLE_NAME,
+						    TABLES.TABLE_COMMENT,
+						    CASE WHEN COLUMN_DEL.COLUMN_NAME IS NULL THEN FALSE ELSE TRUE END AS TABLE_ISDELETED,
+                            CASE WHEN COLUMN_APP.COLUMN_NAME IS NULL THEN FALSE ELSE TRUE END AS TABLE_APPLICATION,
+						    'U' AS TABLE_TYPE,
+                            CASE WHEN COLUMN_EXT.COLUMN_NAME IS NULL THEN FALSE ELSE TRUE END AS TABLE_ISEXT
+				        FROM information_schema.TABLES
+						    LEFT JOIN information_schema.COLUMNS COLUMN_DEL
+							    ON TABLES.TABLE_NAME = COLUMN_DEL.TABLE_NAME
+                                    AND TABLES.TABLE_SCHEMA = COLUMN_DEL.TABLE_SCHEMA
+                                    AND COLUMN_DEL.COLUMN_NAME = 'is_deleted'
+						    LEFT JOIN information_schema.COLUMNS COLUMN_APP
+							    ON TABLES.TABLE_NAME = COLUMN_APP.TABLE_NAME
+                                    AND TABLES.TABLE_SCHEMA = COLUMN_APP.TABLE_SCHEMA
+                                    AND COLUMN_APP.COLUMN_NAME = 'application_id'
+						    LEFT JOIN information_schema.COLUMNS COLUMN_EXT
+							    ON TABLES.TABLE_NAME = COLUMN_EXT.TABLE_NAME
+                                    AND TABLES.TABLE_SCHEMA = COLUMN_EXT.TABLE_SCHEMA
+                                    AND COLUMN_EXT.COLUMN_NAME = 'ext'
+				        WHERE TABLES.TABLE_SCHEMA = '" + this.GetDatabaseName() + @"'
+						    AND TABLES.TABLE_COMMENT IS NOT NULL
+						    AND TABLES.TABLE_COMMENT NOT LIKE '%-x%'
+						    AND TABLES.TABLE_COMMENT <> ''
+		            UNION ALL
+		            SELECT	TABLE_NAME,
+						    TABLE_NAME AS TABLE_COMMENT,
+						    FALSE AS TABLE_ISDELETED,
+                            FALSE AS TABLE_APPLICATION,
+						    'V' AS TABLE_TYPE,
+                            FALSE AS TABLE_ISEXT
+				        FROM information_schema.VIEWS
+				        WHERE TABLE_SCHEMA = '" + this.GetDatabaseName() + @"'
+                ) a
+                    ORDER BY TABLE_NAME
+	        ";
+        }
+        else
+        {
+	        sql = @"
+		        SELECT	a.name AS TABLE_NAME,
+				        b.value AS TABLE_COMMENT,
+				        CASE WHEN c.name IS NULL THEN 0 ELSE 1 END AS TABLE_ISDELETED,
+                        CASE WHEN e.name IS NULL THEN 0 ELSE 1 END AS TABLE_APPLICATION,
+				        a.type AS TABLE_TYPE,
+                        CASE WHEN d.name IS NULL THEN 0 ELSE 1 END AS TABLE_ISEXT
+				    FROM Sysobjects a
+				        LEFT OUTER JOIN sys.extended_properties b
+                            ON a.id = b.major_id AND b.minor_id = 0
+				        LEFT OUTER JOIN sys.syscolumns c
+                            ON a.id = c.id AND c.name = 'is_deleted'
+                        LEFT OUTER JOIN sys.syscolumns d
+					        ON a.id = d.id AND d.name = 'ext'
+				        LEFT OUTER JOIN sys.syscolumns e
+                            ON a.id = e.id AND e.name = 'application_id'
+				    WHERE a.type IN ('U', 'V')
+					    AND a.id NOT IN (
+						    SELECT	ftable.id
+							    FROM syscolumns
+								    INNER JOIN sysobjects ftable
+									    ON syscolumns.id = ftable.id AND ftable.type IN ('U', 'V')
+								    LEFT JOIN sys.sysindexkeys
+									    ON syscolumns.id = sysindexkeys.id AND syscolumns.colid = sysindexkeys.keyno AND sysindexkeys.indid = 1
+								    LEFT JOIN sysforeignkeys
+									    ON sysforeignkeys.fkeyid = ftable.id
+										    and sysforeignkeys.fkey = syscolumns.colid
+							    GROUP BY ftable.id
+							    HAVING COUNT(*) = 2
+								    AND SUM(CASE WHEN sysindexkeys.keyno IS NULL THEN 0 ELSE 1 END) = 2
+								    AND SUM(CASE WHEN sysforeignkeys.keyno IS NULL THEN 0 ELSE 1 END) = 2
+					    )
+				        AND (b.value IS NOT NULL AND CAST(b.value AS VARCHAR) NOT LIKE '%-x%' AND CAST(b.value AS VARCHAR) <> '')
+                        AND b.name = 'MS_Description'
+                    ORDER BY a.name
+	        ";
+        }
+
+        DbCommand cmd = conn.CreateCommand();
+        cmd.CommandText = sql;
+
+        DbDataAdapter adapter = DbProviderFactories.GetFactory(conn).CreateDataAdapter();
+        adapter.SelectCommand = cmd;
+
+	    DataSet tableSet = new DataSet();
+	    adapter.Fill(tableSet);
+
+        conn.Close();
+        return tableSet;
+    }
+
+    /// <summary>
+    /// 获取字段信息
+    /// </summary>
+    /// <param name="tableName">表名</param>
+    public DataSet GetColumnData(string tableName)
+    {
+	    DbConnection conn = GetConnection(); 
+	    conn.Open();
+        string sql = "";
+
+	    // 获取字段信息
+        if (this.IsMySql())
+        {
+	        sql = @"
+                SELECT	TABLE_NAME,
+				        COLUMN_NAME,
+				        DATA_TYPE AS COLUMN_TYPE,
+                        CASE WHEN IS_NULLABLE = 'YES' THEN true ELSE false END  AS IS_NULLABLE,
+				        COLUMN_COMMENT,
+				        CASE WHEN COLUMN_KEY = 'PRI' THEN 1 ELSE 0 END AS COLUMN_KEY,
+                        NUMERIC_PRECISION AS PREC,
+					    NUMERIC_SCALE AS SCALE
+		            FROM information_schema.COLUMNS
+		            WHERE TABLE_SCHEMA = '" + this.GetDatabaseName() + "' AND TABLE_NAME = '" + tableName + @"' AND COLUMN_COMMENT NOT LIKE '%-x%'
+		            ORDER BY ORDINAL_POSITION
+	        ";
+        }
+        else
+        {
+	        sql = @"
+			    SELECT	TABLE_NAME = sysobjects.name,
+		                COLUMN_NAME = syscolumns.name,
+		                COLUMN_TYPE = CAST(syscolumns.xtype AS VARCHAR),
+		                IS_NULLABLE = CASE WHEN syscolumns.status & 8 = 8 THEN 1 ELSE 0 END,
+		                COLUMN_COMMENT = extended_properties.value,
+		                COLUMN_KEY = CASE WHEN sysindexkeys.id IS NULL THEN 0 ELSE 1 END,
+                        PREC = syscolumns.xprec,
+					    SCALE = syscolumns.xscale
+                    FROM syscolumns
+		                INNER JOIN sysobjects
+			                ON syscolumns.id = sysobjects.id AND sysobjects.type IN ('U', 'V')
+		                LEFT OUTER JOIN sys.extended_properties
+			                ON syscolumns.id = extended_properties.major_id
+							    AND syscolumns.colid = extended_properties.minor_id
+		                LEFT OUTER JOIN sysobjects pk
+			                ON syscolumns.id = pk.parent_obj
+							    AND pk.xtype = 'PK'
+		                LEFT OUTER JOIN sys.sysindexes
+			                ON syscolumns.id = sysindexes.id
+							    AND pk.name = sysindexes.name
+		                LEFT OUTER JOIN sys.sysindexkeys
+			                ON syscolumns.id = sysindexkeys.id
+							    AND syscolumns.colid = sysindexkeys.colid
+							    AND sysindexkeys.indid = sysindexes.indid
+                    WHERE sysobjects.name = '" + tableName + @"'
+                        AND CAST(extended_properties.value AS VARCHAR) NOT LIKE '%-x%'
+                    ORDER BY syscolumns.colorder
+	        ";
+        }
+
+        DbCommand cmd = conn.CreateCommand();
+        cmd.CommandText = sql;
+
+        DbDataAdapter adapter = DbProviderFactories.GetFactory(conn).CreateDataAdapter();
+        adapter.SelectCommand = cmd;
+
+	    DataSet tableSet = new DataSet();
+	    adapter.Fill(tableSet);
+
+        conn.Close();
+        return tableSet;
+    }
+
+    /// <summary>
+    /// 获取外键关系
+    /// </summary>
+    /// <param name="tableName">表名</param>
+    public DataSet GetFkData(string tableName)
+    {
+	    DbConnection conn = GetConnection(); 
+	    conn.Open();
+        string sql = "";
+
+	    // 获取表信息
+        if (this.IsMySql())
+        {
+	        sql = @"
+                SELECT	TABLES.TABLE_NAME AS FK_TABLE_NAME,
+				        TABLES.TABLE_COMMENT AS FK_TABLE_COMMENT,
+				        COLUMNS.COLUMN_NAME AS FK_COLUMN_NAME,
+				        COLUMNS.COLUMN_COMMENT AS FK_COLUMN_COMMENT,
+				        REFERENTIAL_CONSTRAINTS.REFERENCED_TABLE_NAME AS PK_TABLE_NAME,
+				        PK_TABLE.TABLE_COMMENT AS PK_TABLE_COMMENT,
+				        CASE WHEN DEL_COLUMN.COLUMN_NAME IS NULL THEN FALSE ELSE TRUE END AS TABLE_ISDELETED
+		            FROM information_schema.REFERENTIAL_CONSTRAINTS
+				        INNER JOIN information_schema.TABLES
+						    ON REFERENTIAL_CONSTRAINTS.TABLE_NAME = TABLES.TABLE_NAME
+								AND REFERENTIAL_CONSTRAINTS.CONSTRAINT_SCHEMA = TABLES.TABLE_SCHEMA
+				        INNER JOIN information_schema.TABLES PK_TABLE
+						    ON REFERENTIAL_CONSTRAINTS.REFERENCED_TABLE_NAME = PK_TABLE.TABLE_NAME
+								AND REFERENTIAL_CONSTRAINTS.CONSTRAINT_SCHEMA = PK_TABLE.TABLE_SCHEMA
+				        INNER JOIN information_schema.KEY_COLUMN_USAGE
+						    ON KEY_COLUMN_USAGE.CONSTRAINT_NAME = REFERENTIAL_CONSTRAINTS.CONSTRAINT_NAME
+								AND KEY_COLUMN_USAGE.CONSTRAINT_SCHEMA = REFERENTIAL_CONSTRAINTS.CONSTRAINT_SCHEMA
+				        INNER JOIN information_schema.COLUMNS
+						    ON COLUMNS.COLUMN_NAME = KEY_COLUMN_USAGE.COLUMN_NAME
+								AND COLUMNS.TABLE_NAME = TABLES.TABLE_NAME
+								AND COLUMNS.TABLE_SCHEMA = REFERENTIAL_CONSTRAINTS.CONSTRAINT_SCHEMA
+				        LEFT JOIN information_schema.COLUMNS DEL_COLUMN
+						    ON TABLES.TABLE_NAME = DEL_COLUMN.TABLE_NAME AND DEL_COLUMN.COLUMN_NAME = 'is_deleted'
+								AND TABLES.TABLE_SCHEMA = DEL_COLUMN.TABLE_SCHEMA
+		        WHERE REFERENTIAL_CONSTRAINTS.CONSTRAINT_SCHEMA = '" + this.GetDatabaseName() + @"'
+				    AND (TABLES.TABLE_NAME = '" + tableName + "' OR REFERENTIAL_CONSTRAINTS.REFERENCED_TABLE_NAME = '" + tableName + @"')
+                ORDER BY COLUMNS.ORDINAL_POSITION
+	        ";
+        }
+        else
+        {
+	        sql = @"
+			    SELECT	ftable.name AS FK_TABLE_NAME,
+		                ftproperty.value AS FK_TABLE_COMMENT,
+		                cn.name AS FK_COLUMN_NAME,
+		                cproperty.value AS FK_COLUMN_COMMENT,
+		                rtable.name AS PK_TABLE_NAME,
+		                rtproperty.value AS PK_TABLE_COMMENT,
+                        CASE WHEN c.name IS NULL THEN 0 ELSE 1 END AS TABLE_ISDELETED
+	                FROM sysforeignkeys
+		                INNER JOIN sysobjects ftable
+			                ON sysforeignkeys.fkeyid = ftable.id
+		                INNER JOIN sysobjects rtable
+			                ON sysforeignkeys.rkeyid = rtable.id
+		                INNER JOIN syscolumns cn
+			                ON sysforeignkeys.fkeyid = cn.id and sysforeignkeys.fkey = cn.colid
+		                LEFT OUTER JOIN sys.extended_properties ftproperty
+			                ON ftable.id = ftproperty.major_id AND ftproperty.minor_id = 0
+		                LEFT OUTER JOIN sys.extended_properties rtproperty
+			                ON rtable.id = rtproperty.major_id AND rtproperty.minor_id = 0
+		                LEFT OUTER JOIN sys.extended_properties cproperty
+			                ON cn.id = cproperty.major_id AND cn.colid = cproperty.minor_id
+					    LEFT OUTER JOIN sys.syscolumns c
+						    ON ftable.id = c.id AND c.name = 'is_deleted'
+                        WHERE ftable.name = '" + tableName + "' OR rtable.name = '" + tableName + @"' ORDER BY cn.colorder
+	        ";
+        }
+
+        DbCommand cmd = conn.CreateCommand();
+        cmd.CommandText = sql;
+
+        DbDataAdapter adapter = DbProviderFactories.GetFactory(conn).CreateDataAdapter();
+        adapter.SelectCommand = cmd;
+
+	    DataSet tableSet = new DataSet();
+	    adapter.Fill(tableSet);
+
+        conn.Close();
+        return tableSet;
+    }
+
+    /// <summary>
+    /// 获取实体名
+    /// </summary>
+    /// <param name="tableName">表名</param>
+    /// <returns>实体名</returns>
+    public string GetEntityName(string tableName)
+    {
+        // 无前缀表名
+        string tableNameWithoutPrefix = tableName;
+
+        if (tableName.Contains("_"))
+        {
+            tableNameWithoutPrefix = tableName.Substring(tableName.IndexOf("_") + 1);
+        }
+
+        // 实体名
+        string entityName = string.Empty;
+
+        // 下划线分隔转为帕斯卡
+        foreach (string word in tableNameWithoutPrefix.Split('_'))
+        {
+            entityName += word.Substring(0, 1).ToUpper();
+
+            if (word.Length > 1)
+            {
+                entityName += word.Substring(1).ToLower();
+            }
+        }
+
+        return entityName;
+    }
+
+    /// <summary>
+    /// 获取属性名
+    /// </summary>
+    /// <param name="">字段名</param>
+    /// <returns>属性名</returns>
+    public string GetPropertyName(string columnName)
+    {
+        // 属性名
+        string propertyName = string.Empty;
+
+        // 下划线分隔转为帕斯卡
+        foreach (string word in columnName.Split('_'))
+        {
+            propertyName += word.Substring(0, 1).ToUpper();
+
+            if (word.Length > 1)
+            {
+                propertyName += word.Substring(1).ToLower();
+            }
+        }
+
+        if (propertyName.EndsWith("Id"))
+        {
+            propertyName = propertyName.Substring(0, propertyName.Length - 2) + "ID";
+        }
+
+        return propertyName;
+    }
+
+    /// <summary>
+    /// 模型是否存在
+    /// </summary>
+    /// <param name="doc">Xml文档</param>
+    /// <param name="name">名称</param>
+    /// <returns>是否存在</returns>
+    public bool IsModelExist(XDocument doc, string name)
+    {
+        var types = doc.Element("doc").Element("members").Elements();
+
+        return  types.Any(x => x.Attribute("name").Value.ToString().StartsWith("T:") && x.Attribute("name").Value.ToString().EndsWith("." + name));
+    }
+
+    /// <summary>
+    /// 属性是否存在
+    /// </summary>
+    /// <param name="doc">Xml文档</param>
+    /// <param name="model">模型</param>
+    /// <param name="name">名称</param>
+    /// <returns>是否存在</returns>
+    public bool IsPropertyExist(XDocument doc, string model, string name)
+    {
+        var types = doc.Element("doc").Element("members").Elements();
+
+        return  types.Any(x => x.Attribute("name").Value.ToString().StartsWith("P:") && x.Attribute("name").Value.ToString().EndsWith("." + model + "." + name));
+    }
+
+    /// <summary>
+    /// 获取复数形式
+    /// </summary>
+    /// <param name="name">名称</param>
+    /// <returns>复数</returns>
+    public string Pluralize(string name)
+    {
+        return PluralizationService.CreateService(new CultureInfo("en")).Pluralize(name);
+    }
+
+    /// <summary>
+    /// 获取属性类型
+    /// </summary>
+    /// <param name="columnType">字段类型</param>
+    /// <param name="isNullable">是否可空</param>
+    /// <returns>属性类型</returns>
+    public string GetPropertyType(string columnType, bool isNullable)
+    {
+        string propertyType= string.Empty;
+
+        if (this.IsMySql())
+        {
+            switch (columnType)
+            {
+                case "bit": propertyType = "bool"; break;
+                case "blob": propertyType = "byte[]"; break;
+                case "mediumblob": propertyType = "byte[]"; break;
+                case "longblob": propertyType = "byte[]"; break;
+                case "smallint": propertyType = "short"; break;
+                case "tinyint": propertyType = "byte"; break;
+                case "int": propertyType = "int"; break;
+                case "integer": propertyType = "int"; break;
+                case "bigint": propertyType = "long"; break;
+                case "float": propertyType = "float"; break;
+                case "double": propertyType = "double"; break;
+                case "decimal": propertyType = "decimal"; break;
+                case "datetime": propertyType = "DateTime"; break;
+                case "varchar": propertyType = "string"; break;
+                case "text": propertyType = "string"; break;
+                case "mediumtext": propertyType = "string"; break;
+                case "longtext": propertyType = "string"; break;
+
+                default: propertyType = "unknow"; break;
+            }
+
+
+        }
+        else
+        {
+            switch (columnType)
+            {
+                case "34": propertyType = "byte[]"; break;
+                case "35": propertyType = "string"; break;
+                case "36": propertyType = "long"; break;
+                case "48": propertyType = "byte"; break;
+                case "52": propertyType = "short"; break;
+                case "56": propertyType = "int"; break;
+                case "58": propertyType = "DateTime"; break;
+                case "59": propertyType = "Single"; break;
+                case "60": propertyType = "decimal"; break;
+                case "61": propertyType = "DateTime"; break;
+                case "62": propertyType = "double"; break;
+                case "99": propertyType = "string"; break;
+                case "104": propertyType = "bool"; break;
+                case "106": propertyType = "decimal"; break;
+                case "108": propertyType = "decimal"; break;
+                case "122": propertyType = "decimal"; break;
+                case "127": propertyType = "long"; break;
+                case "165": propertyType = "byte[]"; break;
+                case "167": propertyType = "string"; break;
+                case "173": propertyType = "byte[]"; break;
+                case "175": propertyType = "string"; break;
+                case "231": propertyType = "string"; break;
+                case "239": propertyType = "string"; break;
+                default: propertyType = "unknow"; break;
+            }
+        }
+
+        if (isNullable && !propertyType.Contains("[]") && propertyType != "string")
+        {
+            propertyType += "?";
+        }
+
+        return propertyType;
+    }
+
+    public static void ArgumentNotNull<T>(T arg, string name) where T : class
+    {
+        if (arg == null)
+        {
+            throw new ArgumentNullException(name);
+        }
+    }
+#>

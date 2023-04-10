@@ -1,0 +1,36 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>net5.0</TargetFramework>
+    <UserSecretsId>70b97320-a728-4256-86c7-11f5ef72222e</UserSecretsId>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Autofac.Extensions.DependencyInjection" Version="8.0.0" />
+    <PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="5.0.17" />
+    <PackageReference Include="Microsoft.AspNetCore.Mvc.NewtonsoftJson" Version="5.0.17" />
+    <PackageReference Include="Swashbuckle.AspNetCore" Version="6.4.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\accreditation.API\accreditation.API.csproj" />
+    <ProjectReference Include="..\accreditation.Business\accreditation.Business.csproj" />
+    <ProjectReference Include="..\accreditation.DataAccess\accreditation.DataAccess.csproj" />
+    <ProjectReference Include="..\accreditation.IBusiness\accreditation.IBusiness.csproj" />
+    <ProjectReference Include="..\accreditation.IDataAccess\accreditation.IDataAccess.csproj" />
+    <ProjectReference Include="..\accreditation.Model\accreditation.Model.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Template\" />
+    <Folder Include="wwwroot\" />
+    <Folder Include="Temp\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Update="wwwroot\index.html">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+
+</Project>

@@ -1,0 +1,789 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>accreditation.IBusiness</name>
+    </assembly>
+    <members>
+        <member name="T:accreditation.IBusiness.IAssessFragmentBusiness">
+            <summary>
+            考核分解项业务逻辑接口
+            </summary>
+        </member>
+        <member name="M:accreditation.IBusiness.IAssessFragmentBusiness.AddAssessFragment(accreditation.Model.AssessFragment)">
+            <summary>
+            新增考核分解项
+            </summary>
+            <param name="assessFragment">考核分解项</param>
+            <return>考核分解项</return>
+        </member>
+        <member name="M:accreditation.IBusiness.IAssessFragmentBusiness.UpdateAssessFragment(accreditation.Model.AssessFragment)">
+            <summary>
+            修改考核分解项
+            </summary>
+            <param name="assessFragment">考核分解项</param>
+            <return>考核分解项</return>
+        </member>
+        <member name="M:accreditation.IBusiness.IAssessFragmentBusiness.RemoveAssessFragment(System.Int64)">
+            <summary>
+            删除考核分解项
+            </summary>
+            <param name="id">唯一编号</param>
+        </member>
+        <member name="M:accreditation.IBusiness.IAssessFragmentBusiness.GetAssessFragment(System.Int64)">
+            <summary>
+            获取考核分解项
+            </summary>
+            <param name="id">唯一编号</param>
+            <returns>考核分解项</returns>
+        </member>
+        <member name="M:accreditation.IBusiness.IAssessFragmentBusiness.GetAssessFragmentOrDefault(System.Int64,accreditation.Model.AssessFragment)">
+            <summary>
+            获取考核分解项
+            </summary>
+            <param name="id">唯一编号</param>
+            <param name="defaultEntity">默认值</param>
+            <returns>考核分解项</returns>
+        </member>
+        <member name="M:accreditation.IBusiness.IAssessFragmentBusiness.GetAssessFragment(System.Linq.Expressions.Expression{System.Func{accreditation.Model.AssessFragment,System.Boolean}})">
+            <summary>
+            根据条件获取考核分解项
+            </summary>
+            <param name="predicate">查询条件</param>
+            <returns>考核分解项</returns>
+        </member>
+        <member name="M:accreditation.IBusiness.IAssessFragmentBusiness.GetAssessFragmentOrDefault(System.Linq.Expressions.Expression{System.Func{accreditation.Model.AssessFragment,System.Boolean}},accreditation.Model.AssessFragment)">
+            <summary>
+            根据条件获取考核分解项
+            </summary>
+            <param name="predicate">查询条件</param>
+            <param name="defaultEntity">默认值</param>
+            <returns>考核分解项</returns>
+        </member>
+        <member name="M:accreditation.IBusiness.IAssessFragmentBusiness.QueryAssessFragment(System.Linq.Expressions.Expression{System.Func{accreditation.Model.AssessFragment,System.Boolean}},Mooho.Base.Common.Pages)">
+            <summary>
+            根据条件查询考核分解项
+            </summary>
+            <param name="predicate">查询条件</param>
+            <param name="pages">分页信息</param>
+            <returns>考核分解项集合</returns>
+        </member>
+        <member name="M:accreditation.IBusiness.IAssessFragmentBusiness.QueryAssessFragment(Newtonsoft.Json.Linq.JObject,Mooho.Base.Common.Pages@)">
+            <summary>
+            根据条件查询考核分解项
+            </summary>
+            <param name="filter">筛选条件</param>
+            <param name="pages">分页信息</param>
+            <returns>考核分解项集合</returns>
+        </member>
+        <member name="T:accreditation.IBusiness.IAssessMethodBusiness">
+            <summary>
+            考核方式业务逻辑接口
+            </summary>
+        </member>
+        <member name="M:accreditation.IBusiness.IAssessMethodBusiness.AddAssessMethod(accreditation.Model.AssessMethod)">
+            <summary>
+            新增考核方式
+            </summary>
+            <param name="assessMethod">考核方式</param>
+            <return>考核方式</return>
+        </member>
+        <member name="M:accreditation.IBusiness.IAssessMethodBusiness.UpdateAssessMethod(accreditation.Model.AssessMethod)">
+            <summary>
+            修改考核方式
+            </summary>
+            <param name="assessMethod">考核方式</param>
+            <return>考核方式</return>
+        </member>
+        <member name="M:accreditation.IBusiness.IAssessMethodBusiness.RemoveAssessMethod(System.Int64)">
+            <summary>
+            删除考核方式
+            </summary>
+            <param name="id">唯一编号</param>
+        </member>
+        <member name="M:accreditation.IBusiness.IAssessMethodBusiness.GetAssessMethod(System.Int64)">
+            <summary>
+            获取考核方式
+            </summary>
+            <param name="id">唯一编号</param>
+            <returns>考核方式</returns>
+        </member>
+        <member name="M:accreditation.IBusiness.IAssessMethodBusiness.GetAssessMethodOrDefault(System.Int64,accreditation.Model.AssessMethod)">
+            <summary>
+            获取考核方式
+            </summary>
+            <param name="id">唯一编号</param>
+            <param name="defaultEntity">默认值</param>
+            <returns>考核方式</returns>
+        </member>
+        <member name="M:accreditation.IBusiness.IAssessMethodBusiness.GetAssessMethod(System.Linq.Expressions.Expression{System.Func{accreditation.Model.AssessMethod,System.Boolean}})">
+            <summary>
+            根据条件获取考核方式
+            </summary>
+            <param name="predicate">查询条件</param>
+            <returns>考核方式</returns>
+        </member>
+        <member name="M:accreditation.IBusiness.IAssessMethodBusiness.GetAssessMethodOrDefault(System.Linq.Expressions.Expression{System.Func{accreditation.Model.AssessMethod,System.Boolean}},accreditation.Model.AssessMethod)">
+            <summary>
+            根据条件获取考核方式
+            </summary>
+            <param name="predicate">查询条件</param>
+            <param name="defaultEntity">默认值</param>
+            <returns>考核方式</returns>
+        </member>
+        <member name="M:accreditation.IBusiness.IAssessMethodBusiness.QueryAssessMethod(System.Linq.Expressions.Expression{System.Func{accreditation.Model.AssessMethod,System.Boolean}},Mooho.Base.Common.Pages)">
+            <summary>
+            根据条件查询考核方式
+            </summary>
+            <param name="predicate">查询条件</param>
+            <param name="pages">分页信息</param>
+            <returns>考核方式集合</returns>
+        </member>
+        <member name="M:accreditation.IBusiness.IAssessMethodBusiness.QueryAssessMethod(Newtonsoft.Json.Linq.JObject,Mooho.Base.Common.Pages@)">
+            <summary>
+            根据条件查询考核方式
+            </summary>
+            <param name="filter">筛选条件</param>
+            <param name="pages">分页信息</param>
+            <returns>考核方式集合</returns>
+        </member>
+        <member name="T:accreditation.IBusiness.ICourseBusiness">
+            <summary>
+            课程业务逻辑接口
+            </summary>
+        </member>
+        <member name="M:accreditation.IBusiness.ICourseBusiness.AddCourse(accreditation.Model.Course)">
+            <summary>
+            新增课程
+            </summary>
+            <param name="course">课程</param>
+            <return>课程</return>
+        </member>
+        <member name="M:accreditation.IBusiness.ICourseBusiness.UpdateCourse(accreditation.Model.Course)">
+            <summary>
+            修改课程
+            </summary>
+            <param name="course">课程</param>
+            <return>课程</return>
+        </member>
+        <member name="M:accreditation.IBusiness.ICourseBusiness.RemoveCourse(System.Int64)">
+            <summary>
+            删除课程
+            </summary>
+            <param name="id">唯一编号</param>
+        </member>
+        <member name="M:accreditation.IBusiness.ICourseBusiness.GetCourse(System.Int64)">
+            <summary>
+            获取课程
+            </summary>
+            <param name="id">唯一编号</param>
+            <returns>课程</returns>
+        </member>
+        <member name="M:accreditation.IBusiness.ICourseBusiness.GetCourseOrDefault(System.Int64,accreditation.Model.Course)">
+            <summary>
+            获取课程
+            </summary>
+            <param name="id">唯一编号</param>
+            <param name="defaultEntity">默认值</param>
+            <returns>课程</returns>
+        </member>
+        <member name="M:accreditation.IBusiness.ICourseBusiness.GetCourse(System.Linq.Expressions.Expression{System.Func{accreditation.Model.Course,System.Boolean}})">
+            <summary>
+            根据条件获取课程
+            </summary>
+            <param name="predicate">查询条件</param>
+            <returns>课程</returns>
+        </member>
+        <member name="M:accreditation.IBusiness.ICourseBusiness.GetCourseOrDefault(System.Linq.Expressions.Expression{System.Func{accreditation.Model.Course,System.Boolean}},accreditation.Model.Course)">
+            <summary>
+            根据条件获取课程
+            </summary>
+            <param name="predicate">查询条件</param>
+            <param name="defaultEntity">默认值</param>
+            <returns>课程</returns>
+        </member>
+        <member name="M:accreditation.IBusiness.ICourseBusiness.QueryCourse(System.Linq.Expressions.Expression{System.Func{accreditation.Model.Course,System.Boolean}},Mooho.Base.Common.Pages)">
+            <summary>
+            根据条件查询课程
+            </summary>
+            <param name="predicate">查询条件</param>
+            <param name="pages">分页信息</param>
+            <returns>课程集合</returns>
+        </member>
+        <member name="M:accreditation.IBusiness.ICourseBusiness.QueryCourse(Newtonsoft.Json.Linq.JObject,Mooho.Base.Common.Pages@)">
+            <summary>
+            根据条件查询课程
+            </summary>
+            <param name="filter">筛选条件</param>
+            <param name="pages">分页信息</param>
+            <returns>课程集合</returns>
+        </member>
+        <member name="T:accreditation.IBusiness.ICourseTargetBusiness">
+            <summary>
+            课程目标业务逻辑接口
+            </summary>
+        </member>
+        <member name="M:accreditation.IBusiness.ICourseTargetBusiness.AddCourseTarget(accreditation.Model.CourseTarget)">
+            <summary>
+            新增课程目标
+            </summary>
+            <param name="courseTarget">课程目标</param>
+            <return>课程目标</return>
+        </member>
+        <member name="M:accreditation.IBusiness.ICourseTargetBusiness.UpdateCourseTarget(accreditation.Model.CourseTarget)">
+            <summary>
+            修改课程目标
+            </summary>
+            <param name="courseTarget">课程目标</param>
+            <return>课程目标</return>
+        </member>
+        <member name="M:accreditation.IBusiness.ICourseTargetBusiness.RemoveCourseTarget(System.Int64)">
+            <summary>
+            删除课程目标
+            </summary>
+            <param name="id">唯一编号</param>
+        </member>
+        <member name="M:accreditation.IBusiness.ICourseTargetBusiness.GetCourseTarget(System.Int64)">
+            <summary>
+            获取课程目标
+            </summary>
+            <param name="id">唯一编号</param>
+            <returns>课程目标</returns>
+        </member>
+        <member name="M:accreditation.IBusiness.ICourseTargetBusiness.GetCourseTargetOrDefault(System.Int64,accreditation.Model.CourseTarget)">
+            <summary>
+            获取课程目标
+            </summary>
+            <param name="id">唯一编号</param>
+            <param name="defaultEntity">默认值</param>
+            <returns>课程目标</returns>
+        </member>
+        <member name="M:accreditation.IBusiness.ICourseTargetBusiness.GetCourseTarget(System.Linq.Expressions.Expression{System.Func{accreditation.Model.CourseTarget,System.Boolean}})">
+            <summary>
+            根据条件获取课程目标
+            </summary>
+            <param name="predicate">查询条件</param>
+            <returns>课程目标</returns>
+        </member>
+        <member name="M:accreditation.IBusiness.ICourseTargetBusiness.GetCourseTargetOrDefault(System.Linq.Expressions.Expression{System.Func{accreditation.Model.CourseTarget,System.Boolean}},accreditation.Model.CourseTarget)">
+            <summary>
+            根据条件获取课程目标
+            </summary>
+            <param name="predicate">查询条件</param>
+            <param name="defaultEntity">默认值</param>
+            <returns>课程目标</returns>
+        </member>
+        <member name="M:accreditation.IBusiness.ICourseTargetBusiness.QueryCourseTarget(System.Linq.Expressions.Expression{System.Func{accreditation.Model.CourseTarget,System.Boolean}},Mooho.Base.Common.Pages)">
+            <summary>
+            根据条件查询课程目标
+            </summary>
+            <param name="predicate">查询条件</param>
+            <param name="pages">分页信息</param>
+            <returns>课程目标集合</returns>
+        </member>
+        <member name="M:accreditation.IBusiness.ICourseTargetBusiness.QueryCourseTarget(Newtonsoft.Json.Linq.JObject,Mooho.Base.Common.Pages@)">
+            <summary>
+            根据条件查询课程目标
+            </summary>
+            <param name="filter">筛选条件</param>
+            <param name="pages">分页信息</param>
+            <returns>课程目标集合</returns>
+        </member>
+        <member name="T:accreditation.IBusiness.ICultivationProjectBusiness">
+            <summary>
+            培养计划业务逻辑接口
+            </summary>
+        </member>
+        <member name="M:accreditation.IBusiness.ICultivationProjectBusiness.AddCultivationProject(accreditation.Model.CultivationProject)">
+            <summary>
+            新增培养计划
+            </summary>
+            <param name="cultivationProject">培养计划</param>
+            <return>培养计划</return>
+        </member>
+        <member name="M:accreditation.IBusiness.ICultivationProjectBusiness.UpdateCultivationProject(accreditation.Model.CultivationProject)">
+            <summary>
+            修改培养计划
+            </summary>
+            <param name="cultivationProject">培养计划</param>
+            <return>培养计划</return>
+        </member>
+        <member name="M:accreditation.IBusiness.ICultivationProjectBusiness.RemoveCultivationProject(System.Int64)">
+            <summary>
+            删除培养计划
+            </summary>
+            <param name="id">唯一编号</param>
+        </member>
+        <member name="M:accreditation.IBusiness.ICultivationProjectBusiness.GetCultivationProject(System.Int64)">
+            <summary>
+            获取培养计划
+            </summary>
+            <param name="id">唯一编号</param>
+            <returns>培养计划</returns>
+        </member>
+        <member name="M:accreditation.IBusiness.ICultivationProjectBusiness.GetCultivationProjectOrDefault(System.Int64,accreditation.Model.CultivationProject)">
+            <summary>
+            获取培养计划
+            </summary>
+            <param name="id">唯一编号</param>
+            <param name="defaultEntity">默认值</param>
+            <returns>培养计划</returns>
+        </member>
+        <member name="M:accreditation.IBusiness.ICultivationProjectBusiness.GetCultivationProject(System.Linq.Expressions.Expression{System.Func{accreditation.Model.CultivationProject,System.Boolean}})">
+            <summary>
+            根据条件获取培养计划
+            </summary>
+            <param name="predicate">查询条件</param>
+            <returns>培养计划</returns>
+        </member>
+        <member name="M:accreditation.IBusiness.ICultivationProjectBusiness.GetCultivationProjectOrDefault(System.Linq.Expressions.Expression{System.Func{accreditation.Model.CultivationProject,System.Boolean}},accreditation.Model.CultivationProject)">
+            <summary>
+            根据条件获取培养计划
+            </summary>
+            <param name="predicate">查询条件</param>
+            <param name="defaultEntity">默认值</param>
+            <returns>培养计划</returns>
+        </member>
+        <member name="M:accreditation.IBusiness.ICultivationProjectBusiness.QueryCultivationProject(System.Linq.Expressions.Expression{System.Func{accreditation.Model.CultivationProject,System.Boolean}},Mooho.Base.Common.Pages)">
+            <summary>
+            根据条件查询培养计划
+            </summary>
+            <param name="predicate">查询条件</param>
+            <param name="pages">分页信息</param>
+            <returns>培养计划集合</returns>
+        </member>
+        <member name="M:accreditation.IBusiness.ICultivationProjectBusiness.QueryCultivationProject(Newtonsoft.Json.Linq.JObject,Mooho.Base.Common.Pages@)">
+            <summary>
+            根据条件查询培养计划
+            </summary>
+            <param name="filter">筛选条件</param>
+            <param name="pages">分页信息</param>
+            <returns>培养计划集合</returns>
+        </member>
+        <member name="T:accreditation.IBusiness.IGraduationPointBusiness">
+            <summary>
+            毕业指标点业务逻辑接口
+            </summary>
+        </member>
+        <member name="M:accreditation.IBusiness.IGraduationPointBusiness.AddGraduationPoint(accreditation.Model.GraduationPoint)">
+            <summary>
+            新增毕业指标点
+            </summary>
+            <param name="graduationPoint">毕业指标点</param>
+            <return>毕业指标点</return>
+        </member>
+        <member name="M:accreditation.IBusiness.IGraduationPointBusiness.UpdateGraduationPoint(accreditation.Model.GraduationPoint)">
+            <summary>
+            修改毕业指标点
+            </summary>
+            <param name="graduationPoint">毕业指标点</param>
+            <return>毕业指标点</return>
+        </member>
+        <member name="M:accreditation.IBusiness.IGraduationPointBusiness.RemoveGraduationPoint(System.Int64)">
+            <summary>
+            删除毕业指标点
+            </summary>
+            <param name="id">唯一编号</param>
+        </member>
+        <member name="M:accreditation.IBusiness.IGraduationPointBusiness.GetGraduationPoint(System.Int64)">
+            <summary>
+            获取毕业指标点
+            </summary>
+            <param name="id">唯一编号</param>
+            <returns>毕业指标点</returns>
+        </member>
+        <member name="M:accreditation.IBusiness.IGraduationPointBusiness.GetGraduationPointOrDefault(System.Int64,accreditation.Model.GraduationPoint)">
+            <summary>
+            获取毕业指标点
+            </summary>
+            <param name="id">唯一编号</param>
+            <param name="defaultEntity">默认值</param>
+            <returns>毕业指标点</returns>
+        </member>
+        <member name="M:accreditation.IBusiness.IGraduationPointBusiness.GetGraduationPoint(System.Linq.Expressions.Expression{System.Func{accreditation.Model.GraduationPoint,System.Boolean}})">
+            <summary>
+            根据条件获取毕业指标点
+            </summary>
+            <param name="predicate">查询条件</param>
+            <returns>毕业指标点</returns>
+        </member>
+        <member name="M:accreditation.IBusiness.IGraduationPointBusiness.GetGraduationPointOrDefault(System.Linq.Expressions.Expression{System.Func{accreditation.Model.GraduationPoint,System.Boolean}},accreditation.Model.GraduationPoint)">
+            <summary>
+            根据条件获取毕业指标点
+            </summary>
+            <param name="predicate">查询条件</param>
+            <param name="defaultEntity">默认值</param>
+            <returns>毕业指标点</returns>
+        </member>
+        <member name="M:accreditation.IBusiness.IGraduationPointBusiness.QueryGraduationPoint(System.Linq.Expressions.Expression{System.Func{accreditation.Model.GraduationPoint,System.Boolean}},Mooho.Base.Common.Pages)">
+            <summary>
+            根据条件查询毕业指标点
+            </summary>
+            <param name="predicate">查询条件</param>
+            <param name="pages">分页信息</param>
+            <returns>毕业指标点集合</returns>
+        </member>
+        <member name="M:accreditation.IBusiness.IGraduationPointBusiness.QueryGraduationPoint(Newtonsoft.Json.Linq.JObject,Mooho.Base.Common.Pages@)">
+            <summary>
+            根据条件查询毕业指标点
+            </summary>
+            <param name="filter">筛选条件</param>
+            <param name="pages">分页信息</param>
+            <returns>毕业指标点集合</returns>
+        </member>
+        <member name="T:accreditation.IBusiness.IGraduationReqBusiness">
+            <summary>
+            毕业要求业务逻辑接口
+            </summary>
+        </member>
+        <member name="M:accreditation.IBusiness.IGraduationReqBusiness.AddGraduationReq(accreditation.Model.GraduationReq)">
+            <summary>
+            新增毕业要求
+            </summary>
+            <param name="graduationReq">毕业要求</param>
+            <return>毕业要求</return>
+        </member>
+        <member name="M:accreditation.IBusiness.IGraduationReqBusiness.UpdateGraduationReq(accreditation.Model.GraduationReq)">
+            <summary>
+            修改毕业要求
+            </summary>
+            <param name="graduationReq">毕业要求</param>
+            <return>毕业要求</return>
+        </member>
+        <member name="M:accreditation.IBusiness.IGraduationReqBusiness.RemoveGraduationReq(System.Int64)">
+            <summary>
+            删除毕业要求
+            </summary>
+            <param name="id">唯一编号</param>
+        </member>
+        <member name="M:accreditation.IBusiness.IGraduationReqBusiness.GetGraduationReq(System.Int64)">
+            <summary>
+            获取毕业要求
+            </summary>
+            <param name="id">唯一编号</param>
+            <returns>毕业要求</returns>
+        </member>
+        <member name="M:accreditation.IBusiness.IGraduationReqBusiness.GetGraduationReqOrDefault(System.Int64,accreditation.Model.GraduationReq)">
+            <summary>
+            获取毕业要求
+            </summary>
+            <param name="id">唯一编号</param>
+            <param name="defaultEntity">默认值</param>
+            <returns>毕业要求</returns>
+        </member>
+        <member name="M:accreditation.IBusiness.IGraduationReqBusiness.GetGraduationReq(System.Linq.Expressions.Expression{System.Func{accreditation.Model.GraduationReq,System.Boolean}})">
+            <summary>
+            根据条件获取毕业要求
+            </summary>
+            <param name="predicate">查询条件</param>
+            <returns>毕业要求</returns>
+        </member>
+        <member name="M:accreditation.IBusiness.IGraduationReqBusiness.GetGraduationReqOrDefault(System.Linq.Expressions.Expression{System.Func{accreditation.Model.GraduationReq,System.Boolean}},accreditation.Model.GraduationReq)">
+            <summary>
+            根据条件获取毕业要求
+            </summary>
+            <param name="predicate">查询条件</param>
+            <param name="defaultEntity">默认值</param>
+            <returns>毕业要求</returns>
+        </member>
+        <member name="M:accreditation.IBusiness.IGraduationReqBusiness.QueryGraduationReq(System.Linq.Expressions.Expression{System.Func{accreditation.Model.GraduationReq,System.Boolean}},Mooho.Base.Common.Pages)">
+            <summary>
+            根据条件查询毕业要求
+            </summary>
+            <param name="predicate">查询条件</param>
+            <param name="pages">分页信息</param>
+            <returns>毕业要求集合</returns>
+        </member>
+        <member name="M:accreditation.IBusiness.IGraduationReqBusiness.QueryGraduationReq(Newtonsoft.Json.Linq.JObject,Mooho.Base.Common.Pages@)">
+            <summary>
+            根据条件查询毕业要求
+            </summary>
+            <param name="filter">筛选条件</param>
+            <param name="pages">分页信息</param>
+            <returns>毕业要求集合</returns>
+        </member>
+        <member name="T:accreditation.IBusiness.IStudentInfoBusiness">
+            <summary>
+            学生信息业务逻辑接口
+            </summary>
+        </member>
+        <member name="M:accreditation.IBusiness.IStudentInfoBusiness.AddStudentInfo(accreditation.Model.StudentInfo)">
+            <summary>
+            新增学生信息
+            </summary>
+            <param name="studentInfo">学生信息</param>
+            <return>学生信息</return>
+        </member>
+        <member name="M:accreditation.IBusiness.IStudentInfoBusiness.UpdateStudentInfo(accreditation.Model.StudentInfo)">
+            <summary>
+            修改学生信息
+            </summary>
+            <param name="studentInfo">学生信息</param>
+            <return>学生信息</return>
+        </member>
+        <member name="M:accreditation.IBusiness.IStudentInfoBusiness.RemoveStudentInfo(System.Int64)">
+            <summary>
+            删除学生信息
+            </summary>
+            <param name="id">唯一编号</param>
+        </member>
+        <member name="M:accreditation.IBusiness.IStudentInfoBusiness.GetStudentInfo(System.Int64)">
+            <summary>
+            获取学生信息
+            </summary>
+            <param name="id">唯一编号</param>
+            <returns>学生信息</returns>
+        </member>
+        <member name="M:accreditation.IBusiness.IStudentInfoBusiness.GetStudentInfoOrDefault(System.Int64,accreditation.Model.StudentInfo)">
+            <summary>
+            获取学生信息
+            </summary>
+            <param name="id">唯一编号</param>
+            <param name="defaultEntity">默认值</param>
+            <returns>学生信息</returns>
+        </member>
+        <member name="M:accreditation.IBusiness.IStudentInfoBusiness.GetStudentInfo(System.Linq.Expressions.Expression{System.Func{accreditation.Model.StudentInfo,System.Boolean}})">
+            <summary>
+            根据条件获取学生信息
+            </summary>
+            <param name="predicate">查询条件</param>
+            <returns>学生信息</returns>
+        </member>
+        <member name="M:accreditation.IBusiness.IStudentInfoBusiness.GetStudentInfoOrDefault(System.Linq.Expressions.Expression{System.Func{accreditation.Model.StudentInfo,System.Boolean}},accreditation.Model.StudentInfo)">
+            <summary>
+            根据条件获取学生信息
+            </summary>
+            <param name="predicate">查询条件</param>
+            <param name="defaultEntity">默认值</param>
+            <returns>学生信息</returns>
+        </member>
+        <member name="M:accreditation.IBusiness.IStudentInfoBusiness.QueryStudentInfo(System.Linq.Expressions.Expression{System.Func{accreditation.Model.StudentInfo,System.Boolean}},Mooho.Base.Common.Pages)">
+            <summary>
+            根据条件查询学生信息
+            </summary>
+            <param name="predicate">查询条件</param>
+            <param name="pages">分页信息</param>
+            <returns>学生信息集合</returns>
+        </member>
+        <member name="M:accreditation.IBusiness.IStudentInfoBusiness.QueryStudentInfo(Newtonsoft.Json.Linq.JObject,Mooho.Base.Common.Pages@)">
+            <summary>
+            根据条件查询学生信息
+            </summary>
+            <param name="filter">筛选条件</param>
+            <param name="pages">分页信息</param>
+            <returns>学生信息集合</returns>
+        </member>
+        <member name="T:accreditation.IBusiness.ISyllabuseBusiness">
+            <summary>
+            教学大纲业务逻辑接口
+            </summary>
+        </member>
+        <member name="M:accreditation.IBusiness.ISyllabuseBusiness.AddSyllabuse(accreditation.Model.Syllabuse)">
+            <summary>
+            新增教学大纲
+            </summary>
+            <param name="syllabuse">教学大纲</param>
+            <return>教学大纲</return>
+        </member>
+        <member name="M:accreditation.IBusiness.ISyllabuseBusiness.UpdateSyllabuse(accreditation.Model.Syllabuse)">
+            <summary>
+            修改教学大纲
+            </summary>
+            <param name="syllabuse">教学大纲</param>
+            <return>教学大纲</return>
+        </member>
+        <member name="M:accreditation.IBusiness.ISyllabuseBusiness.RemoveSyllabuse(System.Int64)">
+            <summary>
+            删除教学大纲
+            </summary>
+            <param name="id">唯一编号</param>
+        </member>
+        <member name="M:accreditation.IBusiness.ISyllabuseBusiness.GetSyllabuse(System.Int64)">
+            <summary>
+            获取教学大纲
+            </summary>
+            <param name="id">唯一编号</param>
+            <returns>教学大纲</returns>
+        </member>
+        <member name="M:accreditation.IBusiness.ISyllabuseBusiness.GetSyllabuseOrDefault(System.Int64,accreditation.Model.Syllabuse)">
+            <summary>
+            获取教学大纲
+            </summary>
+            <param name="id">唯一编号</param>
+            <param name="defaultEntity">默认值</param>
+            <returns>教学大纲</returns>
+        </member>
+        <member name="M:accreditation.IBusiness.ISyllabuseBusiness.GetSyllabuse(System.Linq.Expressions.Expression{System.Func{accreditation.Model.Syllabuse,System.Boolean}})">
+            <summary>
+            根据条件获取教学大纲
+            </summary>
+            <param name="predicate">查询条件</param>
+            <returns>教学大纲</returns>
+        </member>
+        <member name="M:accreditation.IBusiness.ISyllabuseBusiness.GetSyllabuseOrDefault(System.Linq.Expressions.Expression{System.Func{accreditation.Model.Syllabuse,System.Boolean}},accreditation.Model.Syllabuse)">
+            <summary>
+            根据条件获取教学大纲
+            </summary>
+            <param name="predicate">查询条件</param>
+            <param name="defaultEntity">默认值</param>
+            <returns>教学大纲</returns>
+        </member>
+        <member name="M:accreditation.IBusiness.ISyllabuseBusiness.QuerySyllabuse(System.Linq.Expressions.Expression{System.Func{accreditation.Model.Syllabuse,System.Boolean}},Mooho.Base.Common.Pages)">
+            <summary>
+            根据条件查询教学大纲
+            </summary>
+            <param name="predicate">查询条件</param>
+            <param name="pages">分页信息</param>
+            <returns>教学大纲集合</returns>
+        </member>
+        <member name="M:accreditation.IBusiness.ISyllabuseBusiness.QuerySyllabuse(Newtonsoft.Json.Linq.JObject,Mooho.Base.Common.Pages@)">
+            <summary>
+            根据条件查询教学大纲
+            </summary>
+            <param name="filter">筛选条件</param>
+            <param name="pages">分页信息</param>
+            <returns>教学大纲集合</returns>
+        </member>
+        <member name="T:accreditation.IBusiness.ITeacherInfoBusiness">
+            <summary>
+            教师信息业务逻辑接口
+            </summary>
+        </member>
+        <member name="M:accreditation.IBusiness.ITeacherInfoBusiness.AddTeacherInfo(accreditation.Model.TeacherInfo)">
+            <summary>
+            新增教师信息
+            </summary>
+            <param name="teacherInfo">教师信息</param>
+            <return>教师信息</return>
+        </member>
+        <member name="M:accreditation.IBusiness.ITeacherInfoBusiness.UpdateTeacherInfo(accreditation.Model.TeacherInfo)">
+            <summary>
+            修改教师信息
+            </summary>
+            <param name="teacherInfo">教师信息</param>
+            <return>教师信息</return>
+        </member>
+        <member name="M:accreditation.IBusiness.ITeacherInfoBusiness.RemoveTeacherInfo(System.Int64)">
+            <summary>
+            删除教师信息
+            </summary>
+            <param name="id">唯一编号</param>
+        </member>
+        <member name="M:accreditation.IBusiness.ITeacherInfoBusiness.GetTeacherInfo(System.Int64)">
+            <summary>
+            获取教师信息
+            </summary>
+            <param name="id">唯一编号</param>
+            <returns>教师信息</returns>
+        </member>
+        <member name="M:accreditation.IBusiness.ITeacherInfoBusiness.GetTeacherInfoOrDefault(System.Int64,accreditation.Model.TeacherInfo)">
+            <summary>
+            获取教师信息
+            </summary>
+            <param name="id">唯一编号</param>
+            <param name="defaultEntity">默认值</param>
+            <returns>教师信息</returns>
+        </member>
+        <member name="M:accreditation.IBusiness.ITeacherInfoBusiness.GetTeacherInfo(System.Linq.Expressions.Expression{System.Func{accreditation.Model.TeacherInfo,System.Boolean}})">
+            <summary>
+            根据条件获取教师信息
+            </summary>
+            <param name="predicate">查询条件</param>
+            <returns>教师信息</returns>
+        </member>
+        <member name="M:accreditation.IBusiness.ITeacherInfoBusiness.GetTeacherInfoOrDefault(System.Linq.Expressions.Expression{System.Func{accreditation.Model.TeacherInfo,System.Boolean}},accreditation.Model.TeacherInfo)">
+            <summary>
+            根据条件获取教师信息
+            </summary>
+            <param name="predicate">查询条件</param>
+            <param name="defaultEntity">默认值</param>
+            <returns>教师信息</returns>
+        </member>
+        <member name="M:accreditation.IBusiness.ITeacherInfoBusiness.QueryTeacherInfo(System.Linq.Expressions.Expression{System.Func{accreditation.Model.TeacherInfo,System.Boolean}},Mooho.Base.Common.Pages)">
+            <summary>
+            根据条件查询教师信息
+            </summary>
+            <param name="predicate">查询条件</param>
+            <param name="pages">分页信息</param>
+            <returns>教师信息集合</returns>
+        </member>
+        <member name="M:accreditation.IBusiness.ITeacherInfoBusiness.QueryTeacherInfo(Newtonsoft.Json.Linq.JObject,Mooho.Base.Common.Pages@)">
+            <summary>
+            根据条件查询教师信息
+            </summary>
+            <param name="filter">筛选条件</param>
+            <param name="pages">分页信息</param>
+            <returns>教师信息集合</returns>
+        </member>
+        <member name="T:accreditation.IBusiness.ITeachingTeachclasseBusiness">
+            <summary>
+            教学班业务逻辑接口
+            </summary>
+        </member>
+        <member name="M:accreditation.IBusiness.ITeachingTeachclasseBusiness.AddTeachingTeachclasse(accreditation.Model.TeachingTeachclasse)">
+            <summary>
+            新增教学班
+            </summary>
+            <param name="teachingTeachclasse">教学班</param>
+            <return>教学班</return>
+        </member>
+        <member name="M:accreditation.IBusiness.ITeachingTeachclasseBusiness.UpdateTeachingTeachclasse(accreditation.Model.TeachingTeachclasse)">
+            <summary>
+            修改教学班
+            </summary>
+            <param name="teachingTeachclasse">教学班</param>
+            <return>教学班</return>
+        </member>
+        <member name="M:accreditation.IBusiness.ITeachingTeachclasseBusiness.RemoveTeachingTeachclasse(System.Int64)">
+            <summary>
+            删除教学班
+            </summary>
+            <param name="id">唯一编号</param>
+        </member>
+        <member name="M:accreditation.IBusiness.ITeachingTeachclasseBusiness.GetTeachingTeachclasse(System.Int64)">
+            <summary>
+            获取教学班
+            </summary>
+            <param name="id">唯一编号</param>
+            <returns>教学班</returns>
+        </member>
+        <member name="M:accreditation.IBusiness.ITeachingTeachclasseBusiness.GetTeachingTeachclasseOrDefault(System.Int64,accreditation.Model.TeachingTeachclasse)">
+            <summary>
+            获取教学班
+            </summary>
+            <param name="id">唯一编号</param>
+            <param name="defaultEntity">默认值</param>
+            <returns>教学班</returns>
+        </member>
+        <member name="M:accreditation.IBusiness.ITeachingTeachclasseBusiness.GetTeachingTeachclasse(System.Linq.Expressions.Expression{System.Func{accreditation.Model.TeachingTeachclasse,System.Boolean}})">
+            <summary>
+            根据条件获取教学班
+            </summary>
+            <param name="predicate">查询条件</param>
+            <returns>教学班</returns>
+        </member>
+        <member name="M:accreditation.IBusiness.ITeachingTeachclasseBusiness.GetTeachingTeachclasseOrDefault(System.Linq.Expressions.Expression{System.Func{accreditation.Model.TeachingTeachclasse,System.Boolean}},accreditation.Model.TeachingTeachclasse)">
+            <summary>
+            根据条件获取教学班
+            </summary>
+            <param name="predicate">查询条件</param>
+            <param name="defaultEntity">默认值</param>
+            <returns>教学班</returns>
+        </member>
+        <member name="M:accreditation.IBusiness.ITeachingTeachclasseBusiness.QueryTeachingTeachclasse(System.Linq.Expressions.Expression{System.Func{accreditation.Model.TeachingTeachclasse,System.Boolean}},Mooho.Base.Common.Pages)">
+            <summary>
+            根据条件查询教学班
+            </summary>
+            <param name="predicate">查询条件</param>
+            <param name="pages">分页信息</param>
+            <returns>教学班集合</returns>
+        </member>
+        <member name="M:accreditation.IBusiness.ITeachingTeachclasseBusiness.QueryTeachingTeachclasse(Newtonsoft.Json.Linq.JObject,Mooho.Base.Common.Pages@)">
+            <summary>
+            根据条件查询教学班
+            </summary>
+            <param name="filter">筛选条件</param>
+            <param name="pages">分页信息</param>
+            <returns>教学班集合</returns>
+        </member>
+    </members>
+</doc>

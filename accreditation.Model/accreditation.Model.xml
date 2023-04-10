@@ -1,0 +1,543 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>accreditation.Model</name>
+    </assembly>
+    <members>
+        <member name="T:accreditation.Model.AssessFragment">
+            <summary>
+            考核分解项
+            </summary>
+        </member>
+        <member name="P:accreditation.Model.AssessFragment.ID">
+            <summary>
+            获取或设置分解项id编号
+            </summary>
+        </member>
+        <member name="P:accreditation.Model.AssessFragment.Weight">
+            <summary>
+            获取或设置权重
+            </summary>
+        </member>
+        <member name="P:accreditation.Model.AssessFragment.Defination">
+            <summary>
+            获取或设置名称
+            </summary>
+        </member>
+        <member name="P:accreditation.Model.AssessFragment.Content">
+            <summary>
+            获取或设置描述
+            </summary>
+        </member>
+        <member name="P:accreditation.Model.AssessFragment.CreateUserID">
+            <summary>
+            获取或设置创建者编号
+            </summary>
+        </member>
+        <member name="P:accreditation.Model.AssessFragment.CreateTime">
+            <summary>
+            获取或设置创建时间
+            </summary>
+        </member>
+        <member name="P:accreditation.Model.AssessFragment.UpdateUserID">
+            <summary>
+            获取或设置更新人编号
+            </summary>
+        </member>
+        <member name="P:accreditation.Model.AssessFragment.UpdateTime">
+            <summary>
+            获取或设置更新时间
+            </summary>
+        </member>
+        <member name="T:accreditation.Model.AssessMethod">
+            <summary>
+            考核方式
+            </summary>
+        </member>
+        <member name="P:accreditation.Model.AssessMethod.ID">
+            <summary>
+            获取或设置考核方式id编号
+            </summary>
+        </member>
+        <member name="P:accreditation.Model.AssessMethod.Defination">
+            <summary>
+            获取或设置名称
+            </summary>
+        </member>
+        <member name="P:accreditation.Model.AssessMethod.Content">
+            <summary>
+            获取或设置内容
+            </summary>
+        </member>
+        <member name="P:accreditation.Model.AssessMethod.Weight">
+            <summary>
+            获取或设置权重
+            </summary>
+        </member>
+        <member name="P:accreditation.Model.AssessMethod.CreateUserID">
+            <summary>
+            获取或设置创建人编号
+            </summary>
+        </member>
+        <member name="P:accreditation.Model.AssessMethod.CreateTime">
+            <summary>
+            获取或设置创建时间
+            </summary>
+        </member>
+        <member name="P:accreditation.Model.AssessMethod.UpdateUserID">
+            <summary>
+            获取或设置更新人编号
+            </summary>
+        </member>
+        <member name="P:accreditation.Model.AssessMethod.UpdateTime">
+            <summary>
+            获取或设置更新时间
+            </summary>
+        </member>
+        <member name="T:accreditation.Model.Course">
+            <summary>
+            课程
+            </summary>
+        </member>
+        <member name="P:accreditation.Model.Course.ID">
+            <summary>
+            获取或设置课程id编号
+            </summary>
+        </member>
+        <member name="P:accreditation.Model.Course.SyllabusID">
+            <summary>
+            获取或设置大纲id编号
+            </summary>
+        </member>
+        <member name="P:accreditation.Model.Course.CourseName">
+            <summary>
+            获取或设置课程名称
+            </summary>
+        </member>
+        <member name="P:accreditation.Model.Course.Type">
+            <summary>
+            获取或设置课程类型
+            </summary>
+        </member>
+        <member name="P:accreditation.Model.Course.Content">
+            <summary>
+            获取或设置内容
+            </summary>
+        </member>
+        <member name="P:accreditation.Model.Course.CreateUserID">
+            <summary>
+            获取或设置创建者编号
+            </summary>
+        </member>
+        <member name="P:accreditation.Model.Course.CreateTime">
+            <summary>
+            获取或设置创建时间
+            </summary>
+        </member>
+        <member name="P:accreditation.Model.Course.UpdateUserID">
+            <summary>
+            获取或设置最后更新人编号
+            </summary>
+        </member>
+        <member name="P:accreditation.Model.Course.UpdateTime">
+            <summary>
+            获取或设置最后更新时间
+            </summary>
+        </member>
+        <member name="P:accreditation.Model.Course.Syllabus">
+            <summary>
+            获取或设置大纲id
+            </summary>
+        </member>
+        <member name="T:accreditation.Model.CourseTarget">
+            <summary>
+            课程目标
+            </summary>
+        </member>
+        <member name="P:accreditation.Model.CourseTarget.ID">
+            <summary>
+            获取或设置课程目标id编号
+            </summary>
+        </member>
+        <member name="P:accreditation.Model.CourseTarget.Content">
+            <summary>
+            获取或设置内容
+            </summary>
+        </member>
+        <member name="P:accreditation.Model.CourseTarget.Value">
+            <summary>
+            获取或设置值
+            </summary>
+        </member>
+        <member name="P:accreditation.Model.CourseTarget.CreateUserID">
+            <summary>
+            获取或设置创建人编号
+            </summary>
+        </member>
+        <member name="P:accreditation.Model.CourseTarget.CreateTime">
+            <summary>
+            获取或设置创建时间
+            </summary>
+        </member>
+        <member name="P:accreditation.Model.CourseTarget.UpdateUserID">
+            <summary>
+            获取或设置更新人编号
+            </summary>
+        </member>
+        <member name="P:accreditation.Model.CourseTarget.UpdateTime">
+            <summary>
+            获取或设置更新时间
+            </summary>
+        </member>
+        <member name="T:accreditation.Model.CultivationProject">
+            <summary>
+            培养计划
+            </summary>
+        </member>
+        <member name="P:accreditation.Model.CultivationProject.ID">
+            <summary>
+            获取或设置培养方案ID编号
+            </summary>
+        </member>
+        <member name="P:accreditation.Model.CultivationProject.CultivationCode">
+            <summary>
+            获取或设置培养方案代码
+            </summary>
+        </member>
+        <member name="P:accreditation.Model.CultivationProject.CultivationType">
+            <summary>
+            获取或设置培养方案类型
+            </summary>
+        </member>
+        <member name="P:accreditation.Model.CultivationProject.Content">
+            <summary>
+            获取或设置培养方案内容
+            </summary>
+        </member>
+        <member name="P:accreditation.Model.CultivationProject.CreateUserID">
+            <summary>
+            获取或设置创建人编号
+            </summary>
+        </member>
+        <member name="P:accreditation.Model.CultivationProject.CreateTime">
+            <summary>
+            获取或设置创建时间
+            </summary>
+        </member>
+        <member name="P:accreditation.Model.CultivationProject.UpdateUserID">
+            <summary>
+            获取或设置最后更新人编号
+            </summary>
+        </member>
+        <member name="P:accreditation.Model.CultivationProject.UpdateTime">
+            <summary>
+            获取或设置最后更新时间
+            </summary>
+        </member>
+        <member name="T:accreditation.Model.GraduationPoint">
+            <summary>
+            毕业指标点
+            </summary>
+        </member>
+        <member name="P:accreditation.Model.GraduationPoint.ID">
+            <summary>
+            获取或设置毕业指标点id编号
+            </summary>
+        </member>
+        <member name="P:accreditation.Model.GraduationPoint.Weight">
+            <summary>
+            获取或设置权重
+            </summary>
+        </member>
+        <member name="P:accreditation.Model.GraduationPoint.Content">
+            <summary>
+            获取或设置内容
+            </summary>
+        </member>
+        <member name="P:accreditation.Model.GraduationPoint.Completion">
+            <summary>
+            获取或设置完成度
+            </summary>
+        </member>
+        <member name="P:accreditation.Model.GraduationPoint.CreateUserID">
+            <summary>
+            获取或设置创建人编号
+            </summary>
+        </member>
+        <member name="P:accreditation.Model.GraduationPoint.CreateTime">
+            <summary>
+            获取或设置创建时间
+            </summary>
+        </member>
+        <member name="P:accreditation.Model.GraduationPoint.UpdateUserID">
+            <summary>
+            获取或设置更新人编号
+            </summary>
+        </member>
+        <member name="P:accreditation.Model.GraduationPoint.UpdateTime">
+            <summary>
+            获取或设置更新时间
+            </summary>
+        </member>
+        <member name="T:accreditation.Model.GraduationReq">
+            <summary>
+            毕业要求
+            </summary>
+        </member>
+        <member name="P:accreditation.Model.GraduationReq.ID">
+            <summary>
+            获取或设置毕业要求id编号
+            </summary>
+        </member>
+        <member name="P:accreditation.Model.GraduationReq.Value">
+            <summary>
+            获取或设置占比值
+            </summary>
+        </member>
+        <member name="P:accreditation.Model.GraduationReq.Content">
+            <summary>
+            获取或设置内容
+            </summary>
+        </member>
+        <member name="P:accreditation.Model.GraduationReq.CreateUserID">
+            <summary>
+            获取或设置创建人编号
+            </summary>
+        </member>
+        <member name="P:accreditation.Model.GraduationReq.CreateTime">
+            <summary>
+            获取或设置创建时间
+            </summary>
+        </member>
+        <member name="P:accreditation.Model.GraduationReq.UpdateUserID">
+            <summary>
+            获取或设置更新人编号
+            </summary>
+        </member>
+        <member name="P:accreditation.Model.GraduationReq.UpdateTime">
+            <summary>
+            获取或设置更新时间
+            </summary>
+        </member>
+        <member name="T:accreditation.Model.StudentInfo">
+            <summary>
+            学生信息
+            </summary>
+        </member>
+        <member name="P:accreditation.Model.StudentInfo.ID">
+            <summary>
+            获取或设置学生ID编号
+            </summary>
+        </member>
+        <member name="P:accreditation.Model.StudentInfo.Name">
+            <summary>
+            获取或设置学生姓名
+            </summary>
+        </member>
+        <member name="P:accreditation.Model.StudentInfo.StudentNumber">
+            <summary>
+            获取或设置学生学号
+            </summary>
+        </member>
+        <member name="P:accreditation.Model.StudentInfo.GradeClass">
+            <summary>
+            获取或设置班级
+            </summary>
+        </member>
+        <member name="P:accreditation.Model.StudentInfo.CreateUserID">
+            <summary>
+            获取或设置创建人ID编号
+            </summary>
+        </member>
+        <member name="P:accreditation.Model.StudentInfo.CreateTime">
+            <summary>
+            获取或设置创建时间
+            </summary>
+        </member>
+        <member name="P:accreditation.Model.StudentInfo.UpdateUserID">
+            <summary>
+            获取或设置最后更新人编号
+            </summary>
+        </member>
+        <member name="P:accreditation.Model.StudentInfo.UpdateTime">
+            <summary>
+            获取或设置最后更新时间
+            </summary>
+        </member>
+        <member name="T:accreditation.Model.Syllabuse">
+            <summary>
+            教学大纲
+            </summary>
+        </member>
+        <member name="P:accreditation.Model.Syllabuse.ID">
+            <summary>
+            获取或设置大纲ID编号
+            </summary>
+        </member>
+        <member name="P:accreditation.Model.Syllabuse.SyllMaterial">
+            <summary>
+            获取或设置教材
+            </summary>
+        </member>
+        <member name="P:accreditation.Model.Syllabuse.SyllProperties">
+            <summary>
+            获取或设置大纲属性
+            </summary>
+        </member>
+        <member name="P:accreditation.Model.Syllabuse.CreditHours">
+            <summary>
+            获取或设置课时
+            </summary>
+        </member>
+        <member name="P:accreditation.Model.Syllabuse.CreditNumber">
+            <summary>
+            获取或设置学分
+            </summary>
+        </member>
+        <member name="P:accreditation.Model.Syllabuse.TechMajor">
+            <summary>
+            获取或设置课程专业
+            </summary>
+        </member>
+        <member name="P:accreditation.Model.Syllabuse.Content">
+            <summary>
+            获取或设置内容
+            </summary>
+        </member>
+        <member name="P:accreditation.Model.Syllabuse.CreateUserID">
+            <summary>
+            获取或设置创建者编号
+            </summary>
+        </member>
+        <member name="P:accreditation.Model.Syllabuse.CreateTime">
+            <summary>
+            获取或设置创建时间
+            </summary>
+        </member>
+        <member name="P:accreditation.Model.Syllabuse.UpdateUserID">
+            <summary>
+            获取或设置最后创建者编号
+            </summary>
+        </member>
+        <member name="P:accreditation.Model.Syllabuse.UpdateTime">
+            <summary>
+            获取或设置最后创建时间
+            </summary>
+        </member>
+        <member name="P:accreditation.Model.Syllabuse.CourseEntitiesOfSyllabus">
+            <summary>
+            获取或设置课程
+            </summary>
+        </member>
+        <member name="P:accreditation.Model.Syllabuse.CourseInternalEntitiesOfSyllabus">
+            <summary>
+            获取或设置课程
+            </summary>
+        </member>
+        <member name="P:accreditation.Model.Syllabuse.CoursesOfSyllabus">
+            <summary>
+            获取或设置课程
+            </summary>
+        </member>
+        <member name="T:accreditation.Model.TeacherInfo">
+            <summary>
+            教师信息
+            </summary>
+        </member>
+        <member name="P:accreditation.Model.TeacherInfo.ID">
+            <summary>
+            获取或设置教师id编号
+            </summary>
+        </member>
+        <member name="P:accreditation.Model.TeacherInfo.Name">
+            <summary>
+            获取或设置姓名
+            </summary>
+        </member>
+        <member name="P:accreditation.Model.TeacherInfo.Account">
+            <summary>
+            获取或设置账户
+            </summary>
+        </member>
+        <member name="P:accreditation.Model.TeacherInfo.Password">
+            <summary>
+            获取或设置密码
+            </summary>
+        </member>
+        <member name="P:accreditation.Model.TeacherInfo.CreateUserID">
+            <summary>
+            获取或设置创建人编号
+            </summary>
+        </member>
+        <member name="P:accreditation.Model.TeacherInfo.CreateTime">
+            <summary>
+            获取或设置创建时间
+            </summary>
+        </member>
+        <member name="P:accreditation.Model.TeacherInfo.ProfessionalTitle">
+            <summary>
+            获取或设置职称
+            </summary>
+        </member>
+        <member name="P:accreditation.Model.TeacherInfo.UpdateUserID">
+            <summary>
+            获取或设置更新人编号
+            </summary>
+        </member>
+        <member name="P:accreditation.Model.TeacherInfo.UpdateTime">
+            <summary>
+            获取或设置更新时间
+            </summary>
+        </member>
+        <member name="T:accreditation.Model.TeachingTeachclasse">
+            <summary>
+            教学班
+            </summary>
+        </member>
+        <member name="P:accreditation.Model.TeachingTeachclasse.ID">
+            <summary>
+            获取或设置教学班ID编号
+            </summary>
+        </member>
+        <member name="P:accreditation.Model.TeachingTeachclasse.CourseID">
+            <summary>
+            获取或设置课程id编号
+            </summary>
+        </member>
+        <member name="P:accreditation.Model.TeachingTeachclasse.TeacherID">
+            <summary>
+            获取或设置教师id编号
+            </summary>
+        </member>
+        <member name="P:accreditation.Model.TeachingTeachclasse.Content">
+            <summary>
+            获取或设置内容
+            </summary>
+        </member>
+        <member name="P:accreditation.Model.TeachingTeachclasse.ContainNumber">
+            <summary>
+            获取或设置容量
+            </summary>
+        </member>
+        <member name="P:accreditation.Model.TeachingTeachclasse.CreateUserID">
+            <summary>
+            获取或设置创建人编号
+            </summary>
+        </member>
+        <member name="P:accreditation.Model.TeachingTeachclasse.CreateTime">
+            <summary>
+            获取或设置创建时间
+            </summary>
+        </member>
+        <member name="P:accreditation.Model.TeachingTeachclasse.UpdateUserID">
+            <summary>
+            获取或设置更新人编号
+            </summary>
+        </member>
+        <member name="P:accreditation.Model.TeachingTeachclasse.UpdateTime">
+            <summary>
+            获取或设置更新时间
+            </summary>
+        </member>
+    </members>
+</doc>

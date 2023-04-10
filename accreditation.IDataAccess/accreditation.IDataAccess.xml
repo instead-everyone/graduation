@@ -1,0 +1,1196 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>accreditation.IDataAccess</name>
+    </assembly>
+    <members>
+        <member name="T:accreditation.IDataAccess.IAssessFragmentDataAccess">
+            <summary>
+            考核分解项数据访问接口
+            </summary>
+        </member>
+        <member name="M:accreditation.IDataAccess.IAssessFragmentDataAccess.AddAssessFragment(accreditation.Model.AssessFragment)">
+            <summary>
+            新增考核分解项
+            </summary>
+            <param name="assessFragment">考核分解项</param>
+            <return>考核分解项</return>
+        </member>
+        <member name="M:accreditation.IDataAccess.IAssessFragmentDataAccess.UpdateAssessFragment(accreditation.Model.AssessFragment)">
+            <summary>
+            修改考核分解项
+            </summary>
+            <param name="assessFragment">考核分解项</param>
+            <return>考核分解项</return>
+        </member>
+        <member name="M:accreditation.IDataAccess.IAssessFragmentDataAccess.SaveAssessFragment(accreditation.Model.AssessFragment)">
+            <summary>
+            保存考核分解项
+            </summary>
+            <param name="assessFragment">考核分解项</param>
+            <return>考核分解项</return>
+        </member>
+        <member name="M:accreditation.IDataAccess.IAssessFragmentDataAccess.RemoveAssessFragment(accreditation.Model.AssessFragment)">
+            <summary>
+            删除考核分解项
+            </summary>
+            <param name="assessFragment">考核分解项</param>
+        </member>
+        <member name="M:accreditation.IDataAccess.IAssessFragmentDataAccess.RemoveAssessFragment(System.Linq.Expressions.Expression{System.Func{accreditation.Model.AssessFragment,System.Boolean}})">
+            <summary>
+            根据条件删除考核分解项
+            </summary>
+            <param name="predicate">查询条件</param>
+        </member>
+        <member name="M:accreditation.IDataAccess.IAssessFragmentDataAccess.GetAssessFragment(System.Int64)">
+            <summary>
+            获取考核分解项
+            </summary>
+            <param name="id">唯一编号</param>
+            <returns>考核分解项</returns>
+        </member>
+        <member name="M:accreditation.IDataAccess.IAssessFragmentDataAccess.GetAssessFragmentOrDefault(System.Int64,accreditation.Model.AssessFragment)">
+            <summary>
+            获取考核分解项
+            </summary>
+            <param name="id">唯一编号</param>
+            <param name="defaultEntity">默认值</param>
+            <returns>考核分解项</returns>
+        </member>
+        <member name="M:accreditation.IDataAccess.IAssessFragmentDataAccess.GetAssessFragment(System.Linq.Expressions.Expression{System.Func{accreditation.Model.AssessFragment,System.Boolean}})">
+            <summary>
+            根据条件获取考核分解项
+            </summary>
+            <param name="predicate">查询条件</param>
+            <returns>考核分解项</returns>
+        </member>
+        <member name="M:accreditation.IDataAccess.IAssessFragmentDataAccess.GetAssessFragmentOrDefault(System.Linq.Expressions.Expression{System.Func{accreditation.Model.AssessFragment,System.Boolean}},accreditation.Model.AssessFragment)">
+            <summary>
+            根据条件获取考核分解项
+            </summary>
+            <param name="predicate">查询条件</param>
+            <param name="defaultEntity">默认值</param>
+            <returns>考核分解项</returns>
+        </member>
+        <member name="M:accreditation.IDataAccess.IAssessFragmentDataAccess.CountAssessFragment(System.Linq.Expressions.Expression{System.Func{accreditation.Model.AssessFragment,System.Boolean}})">
+            <summary>
+            根据条件获取考核分解项数量
+            </summary>
+            <param name="predicate">查询条件</param>
+            <returns>考核分解项数量</returns>
+        </member>
+        <member name="M:accreditation.IDataAccess.IAssessFragmentDataAccess.SumAssessFragment(System.Linq.Expressions.Expression{System.Func{accreditation.Model.AssessFragment,System.Nullable{System.Int32}}},System.Linq.Expressions.Expression{System.Func{accreditation.Model.AssessFragment,System.Boolean}})">
+            <summary>
+            根据条件统计考核分解项
+            </summary>
+            <param name="selecter">统计字段</param>
+            <param name="predicate">查询条件</param>
+            <returns>统计值</returns>
+        </member>
+        <member name="M:accreditation.IDataAccess.IAssessFragmentDataAccess.SumAssessFragment(System.Linq.Expressions.Expression{System.Func{accreditation.Model.AssessFragment,System.Nullable{System.Decimal}}},System.Linq.Expressions.Expression{System.Func{accreditation.Model.AssessFragment,System.Boolean}})">
+            <summary>
+            根据条件统计考核分解项
+            </summary>
+            <param name="selecter">统计字段</param>
+            <param name="predicate">查询条件</param>
+            <returns>统计值</returns>
+        </member>
+        <member name="M:accreditation.IDataAccess.IAssessFragmentDataAccess.QueryAssessFragment(System.Linq.Expressions.Expression{System.Func{accreditation.Model.AssessFragment,System.Boolean}},Mooho.Base.Common.Pages)">
+            <summary>
+            根据条件查询考核分解项
+            </summary>
+            <param name="predicate">查询条件</param>
+            <param name="pages">分页信息</param>
+            <returns>考核分解项集合</returns>
+        </member>
+        <member name="M:accreditation.IDataAccess.IAssessFragmentDataAccess.QueryAssessFragment(System.Linq.Expressions.Expression{System.Func{accreditation.Model.AssessFragment,System.Boolean}},System.Linq.Expressions.LambdaExpression,Mooho.Base.Common.Pages)">
+            <summary>
+            根据条件查询考核分解项
+            </summary>
+            <param name="predicate">查询条件</param>
+            <param name="dynamicPredicate">动态查询条件</param>
+            <param name="pages">分页信息</param>
+            <returns>考核分解项集合</returns>
+        </member>
+        <member name="T:accreditation.IDataAccess.IAssessMethodDataAccess">
+            <summary>
+            考核方式数据访问接口
+            </summary>
+        </member>
+        <member name="M:accreditation.IDataAccess.IAssessMethodDataAccess.AddAssessMethod(accreditation.Model.AssessMethod)">
+            <summary>
+            新增考核方式
+            </summary>
+            <param name="assessMethod">考核方式</param>
+            <return>考核方式</return>
+        </member>
+        <member name="M:accreditation.IDataAccess.IAssessMethodDataAccess.UpdateAssessMethod(accreditation.Model.AssessMethod)">
+            <summary>
+            修改考核方式
+            </summary>
+            <param name="assessMethod">考核方式</param>
+            <return>考核方式</return>
+        </member>
+        <member name="M:accreditation.IDataAccess.IAssessMethodDataAccess.SaveAssessMethod(accreditation.Model.AssessMethod)">
+            <summary>
+            保存考核方式
+            </summary>
+            <param name="assessMethod">考核方式</param>
+            <return>考核方式</return>
+        </member>
+        <member name="M:accreditation.IDataAccess.IAssessMethodDataAccess.RemoveAssessMethod(accreditation.Model.AssessMethod)">
+            <summary>
+            删除考核方式
+            </summary>
+            <param name="assessMethod">考核方式</param>
+        </member>
+        <member name="M:accreditation.IDataAccess.IAssessMethodDataAccess.RemoveAssessMethod(System.Linq.Expressions.Expression{System.Func{accreditation.Model.AssessMethod,System.Boolean}})">
+            <summary>
+            根据条件删除考核方式
+            </summary>
+            <param name="predicate">查询条件</param>
+        </member>
+        <member name="M:accreditation.IDataAccess.IAssessMethodDataAccess.GetAssessMethod(System.Int64)">
+            <summary>
+            获取考核方式
+            </summary>
+            <param name="id">唯一编号</param>
+            <returns>考核方式</returns>
+        </member>
+        <member name="M:accreditation.IDataAccess.IAssessMethodDataAccess.GetAssessMethodOrDefault(System.Int64,accreditation.Model.AssessMethod)">
+            <summary>
+            获取考核方式
+            </summary>
+            <param name="id">唯一编号</param>
+            <param name="defaultEntity">默认值</param>
+            <returns>考核方式</returns>
+        </member>
+        <member name="M:accreditation.IDataAccess.IAssessMethodDataAccess.GetAssessMethod(System.Linq.Expressions.Expression{System.Func{accreditation.Model.AssessMethod,System.Boolean}})">
+            <summary>
+            根据条件获取考核方式
+            </summary>
+            <param name="predicate">查询条件</param>
+            <returns>考核方式</returns>
+        </member>
+        <member name="M:accreditation.IDataAccess.IAssessMethodDataAccess.GetAssessMethodOrDefault(System.Linq.Expressions.Expression{System.Func{accreditation.Model.AssessMethod,System.Boolean}},accreditation.Model.AssessMethod)">
+            <summary>
+            根据条件获取考核方式
+            </summary>
+            <param name="predicate">查询条件</param>
+            <param name="defaultEntity">默认值</param>
+            <returns>考核方式</returns>
+        </member>
+        <member name="M:accreditation.IDataAccess.IAssessMethodDataAccess.CountAssessMethod(System.Linq.Expressions.Expression{System.Func{accreditation.Model.AssessMethod,System.Boolean}})">
+            <summary>
+            根据条件获取考核方式数量
+            </summary>
+            <param name="predicate">查询条件</param>
+            <returns>考核方式数量</returns>
+        </member>
+        <member name="M:accreditation.IDataAccess.IAssessMethodDataAccess.SumAssessMethod(System.Linq.Expressions.Expression{System.Func{accreditation.Model.AssessMethod,System.Nullable{System.Int32}}},System.Linq.Expressions.Expression{System.Func{accreditation.Model.AssessMethod,System.Boolean}})">
+            <summary>
+            根据条件统计考核方式
+            </summary>
+            <param name="selecter">统计字段</param>
+            <param name="predicate">查询条件</param>
+            <returns>统计值</returns>
+        </member>
+        <member name="M:accreditation.IDataAccess.IAssessMethodDataAccess.SumAssessMethod(System.Linq.Expressions.Expression{System.Func{accreditation.Model.AssessMethod,System.Nullable{System.Decimal}}},System.Linq.Expressions.Expression{System.Func{accreditation.Model.AssessMethod,System.Boolean}})">
+            <summary>
+            根据条件统计考核方式
+            </summary>
+            <param name="selecter">统计字段</param>
+            <param name="predicate">查询条件</param>
+            <returns>统计值</returns>
+        </member>
+        <member name="M:accreditation.IDataAccess.IAssessMethodDataAccess.QueryAssessMethod(System.Linq.Expressions.Expression{System.Func{accreditation.Model.AssessMethod,System.Boolean}},Mooho.Base.Common.Pages)">
+            <summary>
+            根据条件查询考核方式
+            </summary>
+            <param name="predicate">查询条件</param>
+            <param name="pages">分页信息</param>
+            <returns>考核方式集合</returns>
+        </member>
+        <member name="M:accreditation.IDataAccess.IAssessMethodDataAccess.QueryAssessMethod(System.Linq.Expressions.Expression{System.Func{accreditation.Model.AssessMethod,System.Boolean}},System.Linq.Expressions.LambdaExpression,Mooho.Base.Common.Pages)">
+            <summary>
+            根据条件查询考核方式
+            </summary>
+            <param name="predicate">查询条件</param>
+            <param name="dynamicPredicate">动态查询条件</param>
+            <param name="pages">分页信息</param>
+            <returns>考核方式集合</returns>
+        </member>
+        <member name="T:accreditation.IDataAccess.ICourseDataAccess">
+            <summary>
+            课程数据访问接口
+            </summary>
+        </member>
+        <member name="M:accreditation.IDataAccess.ICourseDataAccess.AddCourse(accreditation.Model.Course)">
+            <summary>
+            新增课程
+            </summary>
+            <param name="course">课程</param>
+            <return>课程</return>
+        </member>
+        <member name="M:accreditation.IDataAccess.ICourseDataAccess.UpdateCourse(accreditation.Model.Course)">
+            <summary>
+            修改课程
+            </summary>
+            <param name="course">课程</param>
+            <return>课程</return>
+        </member>
+        <member name="M:accreditation.IDataAccess.ICourseDataAccess.SaveCourse(accreditation.Model.Course)">
+            <summary>
+            保存课程
+            </summary>
+            <param name="course">课程</param>
+            <return>课程</return>
+        </member>
+        <member name="M:accreditation.IDataAccess.ICourseDataAccess.RemoveCourse(accreditation.Model.Course)">
+            <summary>
+            删除课程
+            </summary>
+            <param name="course">课程</param>
+        </member>
+        <member name="M:accreditation.IDataAccess.ICourseDataAccess.RemoveCourse(System.Linq.Expressions.Expression{System.Func{accreditation.Model.Course,System.Boolean}})">
+            <summary>
+            根据条件删除课程
+            </summary>
+            <param name="predicate">查询条件</param>
+        </member>
+        <member name="M:accreditation.IDataAccess.ICourseDataAccess.GetCourse(System.Int64)">
+            <summary>
+            获取课程
+            </summary>
+            <param name="id">唯一编号</param>
+            <returns>课程</returns>
+        </member>
+        <member name="M:accreditation.IDataAccess.ICourseDataAccess.GetCourseOrDefault(System.Int64,accreditation.Model.Course)">
+            <summary>
+            获取课程
+            </summary>
+            <param name="id">唯一编号</param>
+            <param name="defaultEntity">默认值</param>
+            <returns>课程</returns>
+        </member>
+        <member name="M:accreditation.IDataAccess.ICourseDataAccess.GetCourse(System.Linq.Expressions.Expression{System.Func{accreditation.Model.Course,System.Boolean}})">
+            <summary>
+            根据条件获取课程
+            </summary>
+            <param name="predicate">查询条件</param>
+            <returns>课程</returns>
+        </member>
+        <member name="M:accreditation.IDataAccess.ICourseDataAccess.GetCourseOrDefault(System.Linq.Expressions.Expression{System.Func{accreditation.Model.Course,System.Boolean}},accreditation.Model.Course)">
+            <summary>
+            根据条件获取课程
+            </summary>
+            <param name="predicate">查询条件</param>
+            <param name="defaultEntity">默认值</param>
+            <returns>课程</returns>
+        </member>
+        <member name="M:accreditation.IDataAccess.ICourseDataAccess.CountCourse(System.Linq.Expressions.Expression{System.Func{accreditation.Model.Course,System.Boolean}})">
+            <summary>
+            根据条件获取课程数量
+            </summary>
+            <param name="predicate">查询条件</param>
+            <returns>课程数量</returns>
+        </member>
+        <member name="M:accreditation.IDataAccess.ICourseDataAccess.SumCourse(System.Linq.Expressions.Expression{System.Func{accreditation.Model.Course,System.Nullable{System.Int32}}},System.Linq.Expressions.Expression{System.Func{accreditation.Model.Course,System.Boolean}})">
+            <summary>
+            根据条件统计课程
+            </summary>
+            <param name="selecter">统计字段</param>
+            <param name="predicate">查询条件</param>
+            <returns>统计值</returns>
+        </member>
+        <member name="M:accreditation.IDataAccess.ICourseDataAccess.SumCourse(System.Linq.Expressions.Expression{System.Func{accreditation.Model.Course,System.Nullable{System.Decimal}}},System.Linq.Expressions.Expression{System.Func{accreditation.Model.Course,System.Boolean}})">
+            <summary>
+            根据条件统计课程
+            </summary>
+            <param name="selecter">统计字段</param>
+            <param name="predicate">查询条件</param>
+            <returns>统计值</returns>
+        </member>
+        <member name="M:accreditation.IDataAccess.ICourseDataAccess.QueryCourse(System.Linq.Expressions.Expression{System.Func{accreditation.Model.Course,System.Boolean}},Mooho.Base.Common.Pages)">
+            <summary>
+            根据条件查询课程
+            </summary>
+            <param name="predicate">查询条件</param>
+            <param name="pages">分页信息</param>
+            <returns>课程集合</returns>
+        </member>
+        <member name="M:accreditation.IDataAccess.ICourseDataAccess.QueryCourse(System.Linq.Expressions.Expression{System.Func{accreditation.Model.Course,System.Boolean}},System.Linq.Expressions.LambdaExpression,Mooho.Base.Common.Pages)">
+            <summary>
+            根据条件查询课程
+            </summary>
+            <param name="predicate">查询条件</param>
+            <param name="dynamicPredicate">动态查询条件</param>
+            <param name="pages">分页信息</param>
+            <returns>课程集合</returns>
+        </member>
+        <member name="T:accreditation.IDataAccess.ICourseTargetDataAccess">
+            <summary>
+            课程目标数据访问接口
+            </summary>
+        </member>
+        <member name="M:accreditation.IDataAccess.ICourseTargetDataAccess.AddCourseTarget(accreditation.Model.CourseTarget)">
+            <summary>
+            新增课程目标
+            </summary>
+            <param name="courseTarget">课程目标</param>
+            <return>课程目标</return>
+        </member>
+        <member name="M:accreditation.IDataAccess.ICourseTargetDataAccess.UpdateCourseTarget(accreditation.Model.CourseTarget)">
+            <summary>
+            修改课程目标
+            </summary>
+            <param name="courseTarget">课程目标</param>
+            <return>课程目标</return>
+        </member>
+        <member name="M:accreditation.IDataAccess.ICourseTargetDataAccess.SaveCourseTarget(accreditation.Model.CourseTarget)">
+            <summary>
+            保存课程目标
+            </summary>
+            <param name="courseTarget">课程目标</param>
+            <return>课程目标</return>
+        </member>
+        <member name="M:accreditation.IDataAccess.ICourseTargetDataAccess.RemoveCourseTarget(accreditation.Model.CourseTarget)">
+            <summary>
+            删除课程目标
+            </summary>
+            <param name="courseTarget">课程目标</param>
+        </member>
+        <member name="M:accreditation.IDataAccess.ICourseTargetDataAccess.RemoveCourseTarget(System.Linq.Expressions.Expression{System.Func{accreditation.Model.CourseTarget,System.Boolean}})">
+            <summary>
+            根据条件删除课程目标
+            </summary>
+            <param name="predicate">查询条件</param>
+        </member>
+        <member name="M:accreditation.IDataAccess.ICourseTargetDataAccess.GetCourseTarget(System.Int64)">
+            <summary>
+            获取课程目标
+            </summary>
+            <param name="id">唯一编号</param>
+            <returns>课程目标</returns>
+        </member>
+        <member name="M:accreditation.IDataAccess.ICourseTargetDataAccess.GetCourseTargetOrDefault(System.Int64,accreditation.Model.CourseTarget)">
+            <summary>
+            获取课程目标
+            </summary>
+            <param name="id">唯一编号</param>
+            <param name="defaultEntity">默认值</param>
+            <returns>课程目标</returns>
+        </member>
+        <member name="M:accreditation.IDataAccess.ICourseTargetDataAccess.GetCourseTarget(System.Linq.Expressions.Expression{System.Func{accreditation.Model.CourseTarget,System.Boolean}})">
+            <summary>
+            根据条件获取课程目标
+            </summary>
+            <param name="predicate">查询条件</param>
+            <returns>课程目标</returns>
+        </member>
+        <member name="M:accreditation.IDataAccess.ICourseTargetDataAccess.GetCourseTargetOrDefault(System.Linq.Expressions.Expression{System.Func{accreditation.Model.CourseTarget,System.Boolean}},accreditation.Model.CourseTarget)">
+            <summary>
+            根据条件获取课程目标
+            </summary>
+            <param name="predicate">查询条件</param>
+            <param name="defaultEntity">默认值</param>
+            <returns>课程目标</returns>
+        </member>
+        <member name="M:accreditation.IDataAccess.ICourseTargetDataAccess.CountCourseTarget(System.Linq.Expressions.Expression{System.Func{accreditation.Model.CourseTarget,System.Boolean}})">
+            <summary>
+            根据条件获取课程目标数量
+            </summary>
+            <param name="predicate">查询条件</param>
+            <returns>课程目标数量</returns>
+        </member>
+        <member name="M:accreditation.IDataAccess.ICourseTargetDataAccess.SumCourseTarget(System.Linq.Expressions.Expression{System.Func{accreditation.Model.CourseTarget,System.Nullable{System.Int32}}},System.Linq.Expressions.Expression{System.Func{accreditation.Model.CourseTarget,System.Boolean}})">
+            <summary>
+            根据条件统计课程目标
+            </summary>
+            <param name="selecter">统计字段</param>
+            <param name="predicate">查询条件</param>
+            <returns>统计值</returns>
+        </member>
+        <member name="M:accreditation.IDataAccess.ICourseTargetDataAccess.SumCourseTarget(System.Linq.Expressions.Expression{System.Func{accreditation.Model.CourseTarget,System.Nullable{System.Decimal}}},System.Linq.Expressions.Expression{System.Func{accreditation.Model.CourseTarget,System.Boolean}})">
+            <summary>
+            根据条件统计课程目标
+            </summary>
+            <param name="selecter">统计字段</param>
+            <param name="predicate">查询条件</param>
+            <returns>统计值</returns>
+        </member>
+        <member name="M:accreditation.IDataAccess.ICourseTargetDataAccess.QueryCourseTarget(System.Linq.Expressions.Expression{System.Func{accreditation.Model.CourseTarget,System.Boolean}},Mooho.Base.Common.Pages)">
+            <summary>
+            根据条件查询课程目标
+            </summary>
+            <param name="predicate">查询条件</param>
+            <param name="pages">分页信息</param>
+            <returns>课程目标集合</returns>
+        </member>
+        <member name="M:accreditation.IDataAccess.ICourseTargetDataAccess.QueryCourseTarget(System.Linq.Expressions.Expression{System.Func{accreditation.Model.CourseTarget,System.Boolean}},System.Linq.Expressions.LambdaExpression,Mooho.Base.Common.Pages)">
+            <summary>
+            根据条件查询课程目标
+            </summary>
+            <param name="predicate">查询条件</param>
+            <param name="dynamicPredicate">动态查询条件</param>
+            <param name="pages">分页信息</param>
+            <returns>课程目标集合</returns>
+        </member>
+        <member name="T:accreditation.IDataAccess.ICultivationProjectDataAccess">
+            <summary>
+            培养计划数据访问接口
+            </summary>
+        </member>
+        <member name="M:accreditation.IDataAccess.ICultivationProjectDataAccess.AddCultivationProject(accreditation.Model.CultivationProject)">
+            <summary>
+            新增培养计划
+            </summary>
+            <param name="cultivationProject">培养计划</param>
+            <return>培养计划</return>
+        </member>
+        <member name="M:accreditation.IDataAccess.ICultivationProjectDataAccess.UpdateCultivationProject(accreditation.Model.CultivationProject)">
+            <summary>
+            修改培养计划
+            </summary>
+            <param name="cultivationProject">培养计划</param>
+            <return>培养计划</return>
+        </member>
+        <member name="M:accreditation.IDataAccess.ICultivationProjectDataAccess.SaveCultivationProject(accreditation.Model.CultivationProject)">
+            <summary>
+            保存培养计划
+            </summary>
+            <param name="cultivationProject">培养计划</param>
+            <return>培养计划</return>
+        </member>
+        <member name="M:accreditation.IDataAccess.ICultivationProjectDataAccess.RemoveCultivationProject(accreditation.Model.CultivationProject)">
+            <summary>
+            删除培养计划
+            </summary>
+            <param name="cultivationProject">培养计划</param>
+        </member>
+        <member name="M:accreditation.IDataAccess.ICultivationProjectDataAccess.RemoveCultivationProject(System.Linq.Expressions.Expression{System.Func{accreditation.Model.CultivationProject,System.Boolean}})">
+            <summary>
+            根据条件删除培养计划
+            </summary>
+            <param name="predicate">查询条件</param>
+        </member>
+        <member name="M:accreditation.IDataAccess.ICultivationProjectDataAccess.GetCultivationProject(System.Int64)">
+            <summary>
+            获取培养计划
+            </summary>
+            <param name="id">唯一编号</param>
+            <returns>培养计划</returns>
+        </member>
+        <member name="M:accreditation.IDataAccess.ICultivationProjectDataAccess.GetCultivationProjectOrDefault(System.Int64,accreditation.Model.CultivationProject)">
+            <summary>
+            获取培养计划
+            </summary>
+            <param name="id">唯一编号</param>
+            <param name="defaultEntity">默认值</param>
+            <returns>培养计划</returns>
+        </member>
+        <member name="M:accreditation.IDataAccess.ICultivationProjectDataAccess.GetCultivationProject(System.Linq.Expressions.Expression{System.Func{accreditation.Model.CultivationProject,System.Boolean}})">
+            <summary>
+            根据条件获取培养计划
+            </summary>
+            <param name="predicate">查询条件</param>
+            <returns>培养计划</returns>
+        </member>
+        <member name="M:accreditation.IDataAccess.ICultivationProjectDataAccess.GetCultivationProjectOrDefault(System.Linq.Expressions.Expression{System.Func{accreditation.Model.CultivationProject,System.Boolean}},accreditation.Model.CultivationProject)">
+            <summary>
+            根据条件获取培养计划
+            </summary>
+            <param name="predicate">查询条件</param>
+            <param name="defaultEntity">默认值</param>
+            <returns>培养计划</returns>
+        </member>
+        <member name="M:accreditation.IDataAccess.ICultivationProjectDataAccess.CountCultivationProject(System.Linq.Expressions.Expression{System.Func{accreditation.Model.CultivationProject,System.Boolean}})">
+            <summary>
+            根据条件获取培养计划数量
+            </summary>
+            <param name="predicate">查询条件</param>
+            <returns>培养计划数量</returns>
+        </member>
+        <member name="M:accreditation.IDataAccess.ICultivationProjectDataAccess.SumCultivationProject(System.Linq.Expressions.Expression{System.Func{accreditation.Model.CultivationProject,System.Nullable{System.Int32}}},System.Linq.Expressions.Expression{System.Func{accreditation.Model.CultivationProject,System.Boolean}})">
+            <summary>
+            根据条件统计培养计划
+            </summary>
+            <param name="selecter">统计字段</param>
+            <param name="predicate">查询条件</param>
+            <returns>统计值</returns>
+        </member>
+        <member name="M:accreditation.IDataAccess.ICultivationProjectDataAccess.SumCultivationProject(System.Linq.Expressions.Expression{System.Func{accreditation.Model.CultivationProject,System.Nullable{System.Decimal}}},System.Linq.Expressions.Expression{System.Func{accreditation.Model.CultivationProject,System.Boolean}})">
+            <summary>
+            根据条件统计培养计划
+            </summary>
+            <param name="selecter">统计字段</param>
+            <param name="predicate">查询条件</param>
+            <returns>统计值</returns>
+        </member>
+        <member name="M:accreditation.IDataAccess.ICultivationProjectDataAccess.QueryCultivationProject(System.Linq.Expressions.Expression{System.Func{accreditation.Model.CultivationProject,System.Boolean}},Mooho.Base.Common.Pages)">
+            <summary>
+            根据条件查询培养计划
+            </summary>
+            <param name="predicate">查询条件</param>
+            <param name="pages">分页信息</param>
+            <returns>培养计划集合</returns>
+        </member>
+        <member name="M:accreditation.IDataAccess.ICultivationProjectDataAccess.QueryCultivationProject(System.Linq.Expressions.Expression{System.Func{accreditation.Model.CultivationProject,System.Boolean}},System.Linq.Expressions.LambdaExpression,Mooho.Base.Common.Pages)">
+            <summary>
+            根据条件查询培养计划
+            </summary>
+            <param name="predicate">查询条件</param>
+            <param name="dynamicPredicate">动态查询条件</param>
+            <param name="pages">分页信息</param>
+            <returns>培养计划集合</returns>
+        </member>
+        <member name="T:accreditation.IDataAccess.IGraduationPointDataAccess">
+            <summary>
+            毕业指标点数据访问接口
+            </summary>
+        </member>
+        <member name="M:accreditation.IDataAccess.IGraduationPointDataAccess.AddGraduationPoint(accreditation.Model.GraduationPoint)">
+            <summary>
+            新增毕业指标点
+            </summary>
+            <param name="graduationPoint">毕业指标点</param>
+            <return>毕业指标点</return>
+        </member>
+        <member name="M:accreditation.IDataAccess.IGraduationPointDataAccess.UpdateGraduationPoint(accreditation.Model.GraduationPoint)">
+            <summary>
+            修改毕业指标点
+            </summary>
+            <param name="graduationPoint">毕业指标点</param>
+            <return>毕业指标点</return>
+        </member>
+        <member name="M:accreditation.IDataAccess.IGraduationPointDataAccess.SaveGraduationPoint(accreditation.Model.GraduationPoint)">
+            <summary>
+            保存毕业指标点
+            </summary>
+            <param name="graduationPoint">毕业指标点</param>
+            <return>毕业指标点</return>
+        </member>
+        <member name="M:accreditation.IDataAccess.IGraduationPointDataAccess.RemoveGraduationPoint(accreditation.Model.GraduationPoint)">
+            <summary>
+            删除毕业指标点
+            </summary>
+            <param name="graduationPoint">毕业指标点</param>
+        </member>
+        <member name="M:accreditation.IDataAccess.IGraduationPointDataAccess.RemoveGraduationPoint(System.Linq.Expressions.Expression{System.Func{accreditation.Model.GraduationPoint,System.Boolean}})">
+            <summary>
+            根据条件删除毕业指标点
+            </summary>
+            <param name="predicate">查询条件</param>
+        </member>
+        <member name="M:accreditation.IDataAccess.IGraduationPointDataAccess.GetGraduationPoint(System.Int64)">
+            <summary>
+            获取毕业指标点
+            </summary>
+            <param name="id">唯一编号</param>
+            <returns>毕业指标点</returns>
+        </member>
+        <member name="M:accreditation.IDataAccess.IGraduationPointDataAccess.GetGraduationPointOrDefault(System.Int64,accreditation.Model.GraduationPoint)">
+            <summary>
+            获取毕业指标点
+            </summary>
+            <param name="id">唯一编号</param>
+            <param name="defaultEntity">默认值</param>
+            <returns>毕业指标点</returns>
+        </member>
+        <member name="M:accreditation.IDataAccess.IGraduationPointDataAccess.GetGraduationPoint(System.Linq.Expressions.Expression{System.Func{accreditation.Model.GraduationPoint,System.Boolean}})">
+            <summary>
+            根据条件获取毕业指标点
+            </summary>
+            <param name="predicate">查询条件</param>
+            <returns>毕业指标点</returns>
+        </member>
+        <member name="M:accreditation.IDataAccess.IGraduationPointDataAccess.GetGraduationPointOrDefault(System.Linq.Expressions.Expression{System.Func{accreditation.Model.GraduationPoint,System.Boolean}},accreditation.Model.GraduationPoint)">
+            <summary>
+            根据条件获取毕业指标点
+            </summary>
+            <param name="predicate">查询条件</param>
+            <param name="defaultEntity">默认值</param>
+            <returns>毕业指标点</returns>
+        </member>
+        <member name="M:accreditation.IDataAccess.IGraduationPointDataAccess.CountGraduationPoint(System.Linq.Expressions.Expression{System.Func{accreditation.Model.GraduationPoint,System.Boolean}})">
+            <summary>
+            根据条件获取毕业指标点数量
+            </summary>
+            <param name="predicate">查询条件</param>
+            <returns>毕业指标点数量</returns>
+        </member>
+        <member name="M:accreditation.IDataAccess.IGraduationPointDataAccess.SumGraduationPoint(System.Linq.Expressions.Expression{System.Func{accreditation.Model.GraduationPoint,System.Nullable{System.Int32}}},System.Linq.Expressions.Expression{System.Func{accreditation.Model.GraduationPoint,System.Boolean}})">
+            <summary>
+            根据条件统计毕业指标点
+            </summary>
+            <param name="selecter">统计字段</param>
+            <param name="predicate">查询条件</param>
+            <returns>统计值</returns>
+        </member>
+        <member name="M:accreditation.IDataAccess.IGraduationPointDataAccess.SumGraduationPoint(System.Linq.Expressions.Expression{System.Func{accreditation.Model.GraduationPoint,System.Nullable{System.Decimal}}},System.Linq.Expressions.Expression{System.Func{accreditation.Model.GraduationPoint,System.Boolean}})">
+            <summary>
+            根据条件统计毕业指标点
+            </summary>
+            <param name="selecter">统计字段</param>
+            <param name="predicate">查询条件</param>
+            <returns>统计值</returns>
+        </member>
+        <member name="M:accreditation.IDataAccess.IGraduationPointDataAccess.QueryGraduationPoint(System.Linq.Expressions.Expression{System.Func{accreditation.Model.GraduationPoint,System.Boolean}},Mooho.Base.Common.Pages)">
+            <summary>
+            根据条件查询毕业指标点
+            </summary>
+            <param name="predicate">查询条件</param>
+            <param name="pages">分页信息</param>
+            <returns>毕业指标点集合</returns>
+        </member>
+        <member name="M:accreditation.IDataAccess.IGraduationPointDataAccess.QueryGraduationPoint(System.Linq.Expressions.Expression{System.Func{accreditation.Model.GraduationPoint,System.Boolean}},System.Linq.Expressions.LambdaExpression,Mooho.Base.Common.Pages)">
+            <summary>
+            根据条件查询毕业指标点
+            </summary>
+            <param name="predicate">查询条件</param>
+            <param name="dynamicPredicate">动态查询条件</param>
+            <param name="pages">分页信息</param>
+            <returns>毕业指标点集合</returns>
+        </member>
+        <member name="T:accreditation.IDataAccess.IGraduationReqDataAccess">
+            <summary>
+            毕业要求数据访问接口
+            </summary>
+        </member>
+        <member name="M:accreditation.IDataAccess.IGraduationReqDataAccess.AddGraduationReq(accreditation.Model.GraduationReq)">
+            <summary>
+            新增毕业要求
+            </summary>
+            <param name="graduationReq">毕业要求</param>
+            <return>毕业要求</return>
+        </member>
+        <member name="M:accreditation.IDataAccess.IGraduationReqDataAccess.UpdateGraduationReq(accreditation.Model.GraduationReq)">
+            <summary>
+            修改毕业要求
+            </summary>
+            <param name="graduationReq">毕业要求</param>
+            <return>毕业要求</return>
+        </member>
+        <member name="M:accreditation.IDataAccess.IGraduationReqDataAccess.SaveGraduationReq(accreditation.Model.GraduationReq)">
+            <summary>
+            保存毕业要求
+            </summary>
+            <param name="graduationReq">毕业要求</param>
+            <return>毕业要求</return>
+        </member>
+        <member name="M:accreditation.IDataAccess.IGraduationReqDataAccess.RemoveGraduationReq(accreditation.Model.GraduationReq)">
+            <summary>
+            删除毕业要求
+            </summary>
+            <param name="graduationReq">毕业要求</param>
+        </member>
+        <member name="M:accreditation.IDataAccess.IGraduationReqDataAccess.RemoveGraduationReq(System.Linq.Expressions.Expression{System.Func{accreditation.Model.GraduationReq,System.Boolean}})">
+            <summary>
+            根据条件删除毕业要求
+            </summary>
+            <param name="predicate">查询条件</param>
+        </member>
+        <member name="M:accreditation.IDataAccess.IGraduationReqDataAccess.GetGraduationReq(System.Int64)">
+            <summary>
+            获取毕业要求
+            </summary>
+            <param name="id">唯一编号</param>
+            <returns>毕业要求</returns>
+        </member>
+        <member name="M:accreditation.IDataAccess.IGraduationReqDataAccess.GetGraduationReqOrDefault(System.Int64,accreditation.Model.GraduationReq)">
+            <summary>
+            获取毕业要求
+            </summary>
+            <param name="id">唯一编号</param>
+            <param name="defaultEntity">默认值</param>
+            <returns>毕业要求</returns>
+        </member>
+        <member name="M:accreditation.IDataAccess.IGraduationReqDataAccess.GetGraduationReq(System.Linq.Expressions.Expression{System.Func{accreditation.Model.GraduationReq,System.Boolean}})">
+            <summary>
+            根据条件获取毕业要求
+            </summary>
+            <param name="predicate">查询条件</param>
+            <returns>毕业要求</returns>
+        </member>
+        <member name="M:accreditation.IDataAccess.IGraduationReqDataAccess.GetGraduationReqOrDefault(System.Linq.Expressions.Expression{System.Func{accreditation.Model.GraduationReq,System.Boolean}},accreditation.Model.GraduationReq)">
+            <summary>
+            根据条件获取毕业要求
+            </summary>
+            <param name="predicate">查询条件</param>
+            <param name="defaultEntity">默认值</param>
+            <returns>毕业要求</returns>
+        </member>
+        <member name="M:accreditation.IDataAccess.IGraduationReqDataAccess.CountGraduationReq(System.Linq.Expressions.Expression{System.Func{accreditation.Model.GraduationReq,System.Boolean}})">
+            <summary>
+            根据条件获取毕业要求数量
+            </summary>
+            <param name="predicate">查询条件</param>
+            <returns>毕业要求数量</returns>
+        </member>
+        <member name="M:accreditation.IDataAccess.IGraduationReqDataAccess.SumGraduationReq(System.Linq.Expressions.Expression{System.Func{accreditation.Model.GraduationReq,System.Nullable{System.Int32}}},System.Linq.Expressions.Expression{System.Func{accreditation.Model.GraduationReq,System.Boolean}})">
+            <summary>
+            根据条件统计毕业要求
+            </summary>
+            <param name="selecter">统计字段</param>
+            <param name="predicate">查询条件</param>
+            <returns>统计值</returns>
+        </member>
+        <member name="M:accreditation.IDataAccess.IGraduationReqDataAccess.SumGraduationReq(System.Linq.Expressions.Expression{System.Func{accreditation.Model.GraduationReq,System.Nullable{System.Decimal}}},System.Linq.Expressions.Expression{System.Func{accreditation.Model.GraduationReq,System.Boolean}})">
+            <summary>
+            根据条件统计毕业要求
+            </summary>
+            <param name="selecter">统计字段</param>
+            <param name="predicate">查询条件</param>
+            <returns>统计值</returns>
+        </member>
+        <member name="M:accreditation.IDataAccess.IGraduationReqDataAccess.QueryGraduationReq(System.Linq.Expressions.Expression{System.Func{accreditation.Model.GraduationReq,System.Boolean}},Mooho.Base.Common.Pages)">
+            <summary>
+            根据条件查询毕业要求
+            </summary>
+            <param name="predicate">查询条件</param>
+            <param name="pages">分页信息</param>
+            <returns>毕业要求集合</returns>
+        </member>
+        <member name="M:accreditation.IDataAccess.IGraduationReqDataAccess.QueryGraduationReq(System.Linq.Expressions.Expression{System.Func{accreditation.Model.GraduationReq,System.Boolean}},System.Linq.Expressions.LambdaExpression,Mooho.Base.Common.Pages)">
+            <summary>
+            根据条件查询毕业要求
+            </summary>
+            <param name="predicate">查询条件</param>
+            <param name="dynamicPredicate">动态查询条件</param>
+            <param name="pages">分页信息</param>
+            <returns>毕业要求集合</returns>
+        </member>
+        <member name="T:accreditation.IDataAccess.IStudentInfoDataAccess">
+            <summary>
+            学生信息数据访问接口
+            </summary>
+        </member>
+        <member name="M:accreditation.IDataAccess.IStudentInfoDataAccess.AddStudentInfo(accreditation.Model.StudentInfo)">
+            <summary>
+            新增学生信息
+            </summary>
+            <param name="studentInfo">学生信息</param>
+            <return>学生信息</return>
+        </member>
+        <member name="M:accreditation.IDataAccess.IStudentInfoDataAccess.UpdateStudentInfo(accreditation.Model.StudentInfo)">
+            <summary>
+            修改学生信息
+            </summary>
+            <param name="studentInfo">学生信息</param>
+            <return>学生信息</return>
+        </member>
+        <member name="M:accreditation.IDataAccess.IStudentInfoDataAccess.SaveStudentInfo(accreditation.Model.StudentInfo)">
+            <summary>
+            保存学生信息
+            </summary>
+            <param name="studentInfo">学生信息</param>
+            <return>学生信息</return>
+        </member>
+        <member name="M:accreditation.IDataAccess.IStudentInfoDataAccess.RemoveStudentInfo(accreditation.Model.StudentInfo)">
+            <summary>
+            删除学生信息
+            </summary>
+            <param name="studentInfo">学生信息</param>
+        </member>
+        <member name="M:accreditation.IDataAccess.IStudentInfoDataAccess.RemoveStudentInfo(System.Linq.Expressions.Expression{System.Func{accreditation.Model.StudentInfo,System.Boolean}})">
+            <summary>
+            根据条件删除学生信息
+            </summary>
+            <param name="predicate">查询条件</param>
+        </member>
+        <member name="M:accreditation.IDataAccess.IStudentInfoDataAccess.GetStudentInfo(System.Int64)">
+            <summary>
+            获取学生信息
+            </summary>
+            <param name="id">唯一编号</param>
+            <returns>学生信息</returns>
+        </member>
+        <member name="M:accreditation.IDataAccess.IStudentInfoDataAccess.GetStudentInfoOrDefault(System.Int64,accreditation.Model.StudentInfo)">
+            <summary>
+            获取学生信息
+            </summary>
+            <param name="id">唯一编号</param>
+            <param name="defaultEntity">默认值</param>
+            <returns>学生信息</returns>
+        </member>
+        <member name="M:accreditation.IDataAccess.IStudentInfoDataAccess.GetStudentInfo(System.Linq.Expressions.Expression{System.Func{accreditation.Model.StudentInfo,System.Boolean}})">
+            <summary>
+            根据条件获取学生信息
+            </summary>
+            <param name="predicate">查询条件</param>
+            <returns>学生信息</returns>
+        </member>
+        <member name="M:accreditation.IDataAccess.IStudentInfoDataAccess.GetStudentInfoOrDefault(System.Linq.Expressions.Expression{System.Func{accreditation.Model.StudentInfo,System.Boolean}},accreditation.Model.StudentInfo)">
+            <summary>
+            根据条件获取学生信息
+            </summary>
+            <param name="predicate">查询条件</param>
+            <param name="defaultEntity">默认值</param>
+            <returns>学生信息</returns>
+        </member>
+        <member name="M:accreditation.IDataAccess.IStudentInfoDataAccess.CountStudentInfo(System.Linq.Expressions.Expression{System.Func{accreditation.Model.StudentInfo,System.Boolean}})">
+            <summary>
+            根据条件获取学生信息数量
+            </summary>
+            <param name="predicate">查询条件</param>
+            <returns>学生信息数量</returns>
+        </member>
+        <member name="M:accreditation.IDataAccess.IStudentInfoDataAccess.SumStudentInfo(System.Linq.Expressions.Expression{System.Func{accreditation.Model.StudentInfo,System.Nullable{System.Int32}}},System.Linq.Expressions.Expression{System.Func{accreditation.Model.StudentInfo,System.Boolean}})">
+            <summary>
+            根据条件统计学生信息
+            </summary>
+            <param name="selecter">统计字段</param>
+            <param name="predicate">查询条件</param>
+            <returns>统计值</returns>
+        </member>
+        <member name="M:accreditation.IDataAccess.IStudentInfoDataAccess.SumStudentInfo(System.Linq.Expressions.Expression{System.Func{accreditation.Model.StudentInfo,System.Nullable{System.Decimal}}},System.Linq.Expressions.Expression{System.Func{accreditation.Model.StudentInfo,System.Boolean}})">
+            <summary>
+            根据条件统计学生信息
+            </summary>
+            <param name="selecter">统计字段</param>
+            <param name="predicate">查询条件</param>
+            <returns>统计值</returns>
+        </member>
+        <member name="M:accreditation.IDataAccess.IStudentInfoDataAccess.QueryStudentInfo(System.Linq.Expressions.Expression{System.Func{accreditation.Model.StudentInfo,System.Boolean}},Mooho.Base.Common.Pages)">
+            <summary>
+            根据条件查询学生信息
+            </summary>
+            <param name="predicate">查询条件</param>
+            <param name="pages">分页信息</param>
+            <returns>学生信息集合</returns>
+        </member>
+        <member name="M:accreditation.IDataAccess.IStudentInfoDataAccess.QueryStudentInfo(System.Linq.Expressions.Expression{System.Func{accreditation.Model.StudentInfo,System.Boolean}},System.Linq.Expressions.LambdaExpression,Mooho.Base.Common.Pages)">
+            <summary>
+            根据条件查询学生信息
+            </summary>
+            <param name="predicate">查询条件</param>
+            <param name="dynamicPredicate">动态查询条件</param>
+            <param name="pages">分页信息</param>
+            <returns>学生信息集合</returns>
+        </member>
+        <member name="T:accreditation.IDataAccess.ISyllabuseDataAccess">
+            <summary>
+            教学大纲数据访问接口
+            </summary>
+        </member>
+        <member name="M:accreditation.IDataAccess.ISyllabuseDataAccess.AddSyllabuse(accreditation.Model.Syllabuse)">
+            <summary>
+            新增教学大纲
+            </summary>
+            <param name="syllabuse">教学大纲</param>
+            <return>教学大纲</return>
+        </member>
+        <member name="M:accreditation.IDataAccess.ISyllabuseDataAccess.UpdateSyllabuse(accreditation.Model.Syllabuse)">
+            <summary>
+            修改教学大纲
+            </summary>
+            <param name="syllabuse">教学大纲</param>
+            <return>教学大纲</return>
+        </member>
+        <member name="M:accreditation.IDataAccess.ISyllabuseDataAccess.SaveSyllabuse(accreditation.Model.Syllabuse)">
+            <summary>
+            保存教学大纲
+            </summary>
+            <param name="syllabuse">教学大纲</param>
+            <return>教学大纲</return>
+        </member>
+        <member name="M:accreditation.IDataAccess.ISyllabuseDataAccess.RemoveSyllabuse(accreditation.Model.Syllabuse)">
+            <summary>
+            删除教学大纲
+            </summary>
+            <param name="syllabuse">教学大纲</param>
+        </member>
+        <member name="M:accreditation.IDataAccess.ISyllabuseDataAccess.RemoveSyllabuse(System.Linq.Expressions.Expression{System.Func{accreditation.Model.Syllabuse,System.Boolean}})">
+            <summary>
+            根据条件删除教学大纲
+            </summary>
+            <param name="predicate">查询条件</param>
+        </member>
+        <member name="M:accreditation.IDataAccess.ISyllabuseDataAccess.GetSyllabuse(System.Int64)">
+            <summary>
+            获取教学大纲
+            </summary>
+            <param name="id">唯一编号</param>
+            <returns>教学大纲</returns>
+        </member>
+        <member name="M:accreditation.IDataAccess.ISyllabuseDataAccess.GetSyllabuseOrDefault(System.Int64,accreditation.Model.Syllabuse)">
+            <summary>
+            获取教学大纲
+            </summary>
+            <param name="id">唯一编号</param>
+            <param name="defaultEntity">默认值</param>
+            <returns>教学大纲</returns>
+        </member>
+        <member name="M:accreditation.IDataAccess.ISyllabuseDataAccess.GetSyllabuse(System.Linq.Expressions.Expression{System.Func{accreditation.Model.Syllabuse,System.Boolean}})">
+            <summary>
+            根据条件获取教学大纲
+            </summary>
+            <param name="predicate">查询条件</param>
+            <returns>教学大纲</returns>
+        </member>
+        <member name="M:accreditation.IDataAccess.ISyllabuseDataAccess.GetSyllabuseOrDefault(System.Linq.Expressions.Expression{System.Func{accreditation.Model.Syllabuse,System.Boolean}},accreditation.Model.Syllabuse)">
+            <summary>
+            根据条件获取教学大纲
+            </summary>
+            <param name="predicate">查询条件</param>
+            <param name="defaultEntity">默认值</param>
+            <returns>教学大纲</returns>
+        </member>
+        <member name="M:accreditation.IDataAccess.ISyllabuseDataAccess.CountSyllabuse(System.Linq.Expressions.Expression{System.Func{accreditation.Model.Syllabuse,System.Boolean}})">
+            <summary>
+            根据条件获取教学大纲数量
+            </summary>
+            <param name="predicate">查询条件</param>
+            <returns>教学大纲数量</returns>
+        </member>
+        <member name="M:accreditation.IDataAccess.ISyllabuseDataAccess.SumSyllabuse(System.Linq.Expressions.Expression{System.Func{accreditation.Model.Syllabuse,System.Nullable{System.Int32}}},System.Linq.Expressions.Expression{System.Func{accreditation.Model.Syllabuse,System.Boolean}})">
+            <summary>
+            根据条件统计教学大纲
+            </summary>
+            <param name="selecter">统计字段</param>
+            <param name="predicate">查询条件</param>
+            <returns>统计值</returns>
+        </member>
+        <member name="M:accreditation.IDataAccess.ISyllabuseDataAccess.SumSyllabuse(System.Linq.Expressions.Expression{System.Func{accreditation.Model.Syllabuse,System.Nullable{System.Decimal}}},System.Linq.Expressions.Expression{System.Func{accreditation.Model.Syllabuse,System.Boolean}})">
+            <summary>
+            根据条件统计教学大纲
+            </summary>
+            <param name="selecter">统计字段</param>
+            <param name="predicate">查询条件</param>
+            <returns>统计值</returns>
+        </member>
+        <member name="M:accreditation.IDataAccess.ISyllabuseDataAccess.QuerySyllabuse(System.Linq.Expressions.Expression{System.Func{accreditation.Model.Syllabuse,System.Boolean}},Mooho.Base.Common.Pages)">
+            <summary>
+            根据条件查询教学大纲
+            </summary>
+            <param name="predicate">查询条件</param>
+            <param name="pages">分页信息</param>
+            <returns>教学大纲集合</returns>
+        </member>
+        <member name="M:accreditation.IDataAccess.ISyllabuseDataAccess.QuerySyllabuse(System.Linq.Expressions.Expression{System.Func{accreditation.Model.Syllabuse,System.Boolean}},System.Linq.Expressions.LambdaExpression,Mooho.Base.Common.Pages)">
+            <summary>
+            根据条件查询教学大纲
+            </summary>
+            <param name="predicate">查询条件</param>
+            <param name="dynamicPredicate">动态查询条件</param>
+            <param name="pages">分页信息</param>
+            <returns>教学大纲集合</returns>
+        </member>
+        <member name="T:accreditation.IDataAccess.ITeacherInfoDataAccess">
+            <summary>
+            教师信息数据访问接口
+            </summary>
+        </member>
+        <member name="M:accreditation.IDataAccess.ITeacherInfoDataAccess.AddTeacherInfo(accreditation.Model.TeacherInfo)">
+            <summary>
+            新增教师信息
+            </summary>
+            <param name="teacherInfo">教师信息</param>
+            <return>教师信息</return>
+        </member>
+        <member name="M:accreditation.IDataAccess.ITeacherInfoDataAccess.UpdateTeacherInfo(accreditation.Model.TeacherInfo)">
+            <summary>
+            修改教师信息
+            </summary>
+            <param name="teacherInfo">教师信息</param>
+            <return>教师信息</return>
+        </member>
+        <member name="M:accreditation.IDataAccess.ITeacherInfoDataAccess.SaveTeacherInfo(accreditation.Model.TeacherInfo)">
+            <summary>
+            保存教师信息
+            </summary>
+            <param name="teacherInfo">教师信息</param>
+            <return>教师信息</return>
+        </member>
+        <member name="M:accreditation.IDataAccess.ITeacherInfoDataAccess.RemoveTeacherInfo(accreditation.Model.TeacherInfo)">
+            <summary>
+            删除教师信息
+            </summary>
+            <param name="teacherInfo">教师信息</param>
+        </member>
+        <member name="M:accreditation.IDataAccess.ITeacherInfoDataAccess.RemoveTeacherInfo(System.Linq.Expressions.Expression{System.Func{accreditation.Model.TeacherInfo,System.Boolean}})">
+            <summary>
+            根据条件删除教师信息
+            </summary>
+            <param name="predicate">查询条件</param>
+        </member>
+        <member name="M:accreditation.IDataAccess.ITeacherInfoDataAccess.GetTeacherInfo(System.Int64)">
+            <summary>
+            获取教师信息
+            </summary>
+            <param name="id">唯一编号</param>
+            <returns>教师信息</returns>
+        </member>
+        <member name="M:accreditation.IDataAccess.ITeacherInfoDataAccess.GetTeacherInfoOrDefault(System.Int64,accreditation.Model.TeacherInfo)">
+            <summary>
+            获取教师信息
+            </summary>
+            <param name="id">唯一编号</param>
+            <param name="defaultEntity">默认值</param>
+            <returns>教师信息</returns>
+        </member>
+        <member name="M:accreditation.IDataAccess.ITeacherInfoDataAccess.GetTeacherInfo(System.Linq.Expressions.Expression{System.Func{accreditation.Model.TeacherInfo,System.Boolean}})">
+            <summary>
+            根据条件获取教师信息
+            </summary>
+            <param name="predicate">查询条件</param>
+            <returns>教师信息</returns>
+        </member>
+        <member name="M:accreditation.IDataAccess.ITeacherInfoDataAccess.GetTeacherInfoOrDefault(System.Linq.Expressions.Expression{System.Func{accreditation.Model.TeacherInfo,System.Boolean}},accreditation.Model.TeacherInfo)">
+            <summary>
+            根据条件获取教师信息
+            </summary>
+            <param name="predicate">查询条件</param>
+            <param name="defaultEntity">默认值</param>
+            <returns>教师信息</returns>
+        </member>
+        <member name="M:accreditation.IDataAccess.ITeacherInfoDataAccess.CountTeacherInfo(System.Linq.Expressions.Expression{System.Func{accreditation.Model.TeacherInfo,System.Boolean}})">
+            <summary>
+            根据条件获取教师信息数量
+            </summary>
+            <param name="predicate">查询条件</param>
+            <returns>教师信息数量</returns>
+        </member>
+        <member name="M:accreditation.IDataAccess.ITeacherInfoDataAccess.SumTeacherInfo(System.Linq.Expressions.Expression{System.Func{accreditation.Model.TeacherInfo,System.Nullable{System.Int32}}},System.Linq.Expressions.Expression{System.Func{accreditation.Model.TeacherInfo,System.Boolean}})">
+            <summary>
+            根据条件统计教师信息
+            </summary>
+            <param name="selecter">统计字段</param>
+            <param name="predicate">查询条件</param>
+            <returns>统计值</returns>
+        </member>
+        <member name="M:accreditation.IDataAccess.ITeacherInfoDataAccess.SumTeacherInfo(System.Linq.Expressions.Expression{System.Func{accreditation.Model.TeacherInfo,System.Nullable{System.Decimal}}},System.Linq.Expressions.Expression{System.Func{accreditation.Model.TeacherInfo,System.Boolean}})">
+            <summary>
+            根据条件统计教师信息
+            </summary>
+            <param name="selecter">统计字段</param>
+            <param name="predicate">查询条件</param>
+            <returns>统计值</returns>
+        </member>
+        <member name="M:accreditation.IDataAccess.ITeacherInfoDataAccess.QueryTeacherInfo(System.Linq.Expressions.Expression{System.Func{accreditation.Model.TeacherInfo,System.Boolean}},Mooho.Base.Common.Pages)">
+            <summary>
+            根据条件查询教师信息
+            </summary>
+            <param name="predicate">查询条件</param>
+            <param name="pages">分页信息</param>
+            <returns>教师信息集合</returns>
+        </member>
+        <member name="M:accreditation.IDataAccess.ITeacherInfoDataAccess.QueryTeacherInfo(System.Linq.Expressions.Expression{System.Func{accreditation.Model.TeacherInfo,System.Boolean}},System.Linq.Expressions.LambdaExpression,Mooho.Base.Common.Pages)">
+            <summary>
+            根据条件查询教师信息
+            </summary>
+            <param name="predicate">查询条件</param>
+            <param name="dynamicPredicate">动态查询条件</param>
+            <param name="pages">分页信息</param>
+            <returns>教师信息集合</returns>
+        </member>
+        <member name="T:accreditation.IDataAccess.ITeachingTeachclasseDataAccess">
+            <summary>
+            教学班数据访问接口
+            </summary>
+        </member>
+        <member name="M:accreditation.IDataAccess.ITeachingTeachclasseDataAccess.AddTeachingTeachclasse(accreditation.Model.TeachingTeachclasse)">
+            <summary>
+            新增教学班
+            </summary>
+            <param name="teachingTeachclasse">教学班</param>
+            <return>教学班</return>
+        </member>
+        <member name="M:accreditation.IDataAccess.ITeachingTeachclasseDataAccess.UpdateTeachingTeachclasse(accreditation.Model.TeachingTeachclasse)">
+            <summary>
+            修改教学班
+            </summary>
+            <param name="teachingTeachclasse">教学班</param>
+            <return>教学班</return>
+        </member>
+        <member name="M:accreditation.IDataAccess.ITeachingTeachclasseDataAccess.SaveTeachingTeachclasse(accreditation.Model.TeachingTeachclasse)">
+            <summary>
+            保存教学班
+            </summary>
+            <param name="teachingTeachclasse">教学班</param>
+            <return>教学班</return>
+        </member>
+        <member name="M:accreditation.IDataAccess.ITeachingTeachclasseDataAccess.RemoveTeachingTeachclasse(accreditation.Model.TeachingTeachclasse)">
+            <summary>
+            删除教学班
+            </summary>
+            <param name="teachingTeachclasse">教学班</param>
+        </member>
+        <member name="M:accreditation.IDataAccess.ITeachingTeachclasseDataAccess.RemoveTeachingTeachclasse(System.Linq.Expressions.Expression{System.Func{accreditation.Model.TeachingTeachclasse,System.Boolean}})">
+            <summary>
+            根据条件删除教学班
+            </summary>
+            <param name="predicate">查询条件</param>
+        </member>
+        <member name="M:accreditation.IDataAccess.ITeachingTeachclasseDataAccess.GetTeachingTeachclasse(System.Int64)">
+            <summary>
+            获取教学班
+            </summary>
+            <param name="id">唯一编号</param>
+            <returns>教学班</returns>
+        </member>
+        <member name="M:accreditation.IDataAccess.ITeachingTeachclasseDataAccess.GetTeachingTeachclasseOrDefault(System.Int64,accreditation.Model.TeachingTeachclasse)">
+            <summary>
+            获取教学班
+            </summary>
+            <param name="id">唯一编号</param>
+            <param name="defaultEntity">默认值</param>
+            <returns>教学班</returns>
+        </member>
+        <member name="M:accreditation.IDataAccess.ITeachingTeachclasseDataAccess.GetTeachingTeachclasse(System.Linq.Expressions.Expression{System.Func{accreditation.Model.TeachingTeachclasse,System.Boolean}})">
+            <summary>
+            根据条件获取教学班
+            </summary>
+            <param name="predicate">查询条件</param>
+            <returns>教学班</returns>
+        </member>
+        <member name="M:accreditation.IDataAccess.ITeachingTeachclasseDataAccess.GetTeachingTeachclasseOrDefault(System.Linq.Expressions.Expression{System.Func{accreditation.Model.TeachingTeachclasse,System.Boolean}},accreditation.Model.TeachingTeachclasse)">
+            <summary>
+            根据条件获取教学班
+            </summary>
+            <param name="predicate">查询条件</param>
+            <param name="defaultEntity">默认值</param>
+            <returns>教学班</returns>
+        </member>
+        <member name="M:accreditation.IDataAccess.ITeachingTeachclasseDataAccess.CountTeachingTeachclasse(System.Linq.Expressions.Expression{System.Func{accreditation.Model.TeachingTeachclasse,System.Boolean}})">
+            <summary>
+            根据条件获取教学班数量
+            </summary>
+            <param name="predicate">查询条件</param>
+            <returns>教学班数量</returns>
+        </member>
+        <member name="M:accreditation.IDataAccess.ITeachingTeachclasseDataAccess.SumTeachingTeachclasse(System.Linq.Expressions.Expression{System.Func{accreditation.Model.TeachingTeachclasse,System.Nullable{System.Int32}}},System.Linq.Expressions.Expression{System.Func{accreditation.Model.TeachingTeachclasse,System.Boolean}})">
+            <summary>
+            根据条件统计教学班
+            </summary>
+            <param name="selecter">统计字段</param>
+            <param name="predicate">查询条件</param>
+            <returns>统计值</returns>
+        </member>
+        <member name="M:accreditation.IDataAccess.ITeachingTeachclasseDataAccess.SumTeachingTeachclasse(System.Linq.Expressions.Expression{System.Func{accreditation.Model.TeachingTeachclasse,System.Nullable{System.Decimal}}},System.Linq.Expressions.Expression{System.Func{accreditation.Model.TeachingTeachclasse,System.Boolean}})">
+            <summary>
+            根据条件统计教学班
+            </summary>
+            <param name="selecter">统计字段</param>
+            <param name="predicate">查询条件</param>
+            <returns>统计值</returns>
+        </member>
+        <member name="M:accreditation.IDataAccess.ITeachingTeachclasseDataAccess.QueryTeachingTeachclasse(System.Linq.Expressions.Expression{System.Func{accreditation.Model.TeachingTeachclasse,System.Boolean}},Mooho.Base.Common.Pages)">
+            <summary>
+            根据条件查询教学班
+            </summary>
+            <param name="predicate">查询条件</param>
+            <param name="pages">分页信息</param>
+            <returns>教学班集合</returns>
+        </member>
+        <member name="M:accreditation.IDataAccess.ITeachingTeachclasseDataAccess.QueryTeachingTeachclasse(System.Linq.Expressions.Expression{System.Func{accreditation.Model.TeachingTeachclasse,System.Boolean}},System.Linq.Expressions.LambdaExpression,Mooho.Base.Common.Pages)">
+            <summary>
+            根据条件查询教学班
+            </summary>
+            <param name="predicate">查询条件</param>
+            <param name="dynamicPredicate">动态查询条件</param>
+            <param name="pages">分页信息</param>
+            <returns>教学班集合</returns>
+        </member>
+    </members>
+</doc>

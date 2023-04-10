@@ -1,0 +1,35 @@
+{
+  "name": "mooho-template-admin",
+  "description": "MOOHO管理端模板",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "serve": "vue-cli-service serve --open",
+    "start": "npm run serve",
+    "dev": "npm run serve",
+    "build": "vue-cli-service build"
+  },
+  "dependencies": {
+    "mooho-base-admin": "~0.4.0",
+    "vuex": "^3.0.1"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.3.14",
+    "@babel/plugin-transform-runtime": "^7.12.10",
+    "@kazupon/vue-i18n-loader": "^0.3.0",
+    "@vue/cli-plugin-babel": "^3.12.1",
+    "@vue/cli-plugin-eslint": "~5.0.0",
+    "@vue/cli-service": "^3.12.1",
+    "@vue/eslint-config-standard": "^3.0.0",
+    "eslint": "^7.32.0",
+    "eslint-config-prettier": "^8.3.0",
+    "eslint-plugin-prettier": "^4.0.0",
+    "eslint-plugin-vue": "^8.0.3",
+    "iview-loader": "^1.3.0",
+    "less": "^2.7.3",
+    "less-loader": "^4.1.0",
+    "lint-staged": "^7.2.0",
+    "text-loader": "0.0.1",
+    "vue-template-compiler": "^2.6.12"
+  }
+}

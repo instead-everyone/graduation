@@ -1,0 +1,7 @@
+﻿<#+
+    string namespaceName = "accreditation";
+    string subName = "";
+    string entitiesName = "Entities";
+    //string connectionString = "server=www.mooho.com.cn;port=3306;database=accreditation;uid=root;pwd=Password@1;CharSet=utf8";
+    string connectionString = "Data Source=218.108.45.11,14333;User ID=accredit;Initial Catalog=accreditation;Password=Abcd$2023;";
+#>

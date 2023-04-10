@@ -1,0 +1,53 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net5.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Mooho.Base" Version="2.0.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\accreditation.IDataAccess\accreditation.IDataAccess.csproj" />
+    <ProjectReference Include="..\accreditation.Model\accreditation.Model.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Update="Business\Business.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>Business.cs</LastGenOutput>
+    </None>
+    <None Update="Controller\Controller.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>Controller.cs</LastGenOutput>
+    </None>
+    <None Update="IBusiness\IBusiness.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>IBusiness.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Service Include="{508349b6-6b84-4df5-91f0-309beebad82d}" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Update="Business\Business.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Business.tt</DependentUpon>
+    </Compile>
+    <Compile Update="Controller\Controller.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Controller.tt</DependentUpon>
+    </Compile>
+    <Compile Update="IBusiness\IBusiness.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>IBusiness.tt</DependentUpon>
+    </Compile>
+  </ItemGroup>
+
+</Project>

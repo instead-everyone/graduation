@@ -1,0 +1,8 @@
+{
+  "profiles": {
+    "accreditation.IBusiness": {
+      "commandName": "Project",
+      "nativeDebugging": false
+    }
+  }
+}
